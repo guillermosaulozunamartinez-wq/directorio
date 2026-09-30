@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="DirectorioPY - La guía definitiva de las 15 carreras con mayor futuro en Paraguay. Salarios, empleabilidad, universidades y test vocacional.">
+<title>DirectorioPY — Descubre tu Futuro Profesional en Paraguay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   TOKENS
+   ═══════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --violet:#8b5cf6;--violet-d:#7c3aed;--indigo:#4f46e5;--purple:#6d28d9;
+  --cyan:#22d3ee;--cyan-d:#06b6d4;--teal:#14b8a6;
+  --amber:#fbbf24;--orange:#f59e0b;
+  --emerald:#10b981;--green:#059669;
+  --rose:#f43f5e;--pink:#ec4899;
+  --radius-sm:10px;--radius:16px;--radius-lg:24px;--radius-xl:32px;
+  --tr:.3s cubic-bezier(.4,0,.2,1);
+  --tr-slow:.6s cubic-bezier(.4,0,.2,1);
+  --font:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --font-d:'Space Grotesk','Inter',sans-serif;
+}
+[data-theme="dark"]{
+  --bg:#08080f;--bg-2:#0d0d18;--bg-elev:#12121f;--card:rgba(22,22,38,.6);--card-solid:#16162a;
+  --glass:rgba(255,255,255,.035);--glass-2:rgba(255,255,255,.06);
+  --border:rgba(255,255,255,.07);--border-s:rgba(255,255,255,.14);
+  --text:#f4f4f8;--text-mut:#9ca3ba;--text-dim:#6b7280;
+  --shadow:0 4px 24px rgba(0,0,0,.4);--shadow-lg:0 24px 64px rgba(0,0,0,.6);
+  --glow:0 0 60px rgba(139,92,246,.25);--glow-cyan:0 0 60px rgba(6,182,212,.2);
+  --grid:rgba(139,92,246,.05);
+  --overlay:linear-gradient(180deg,rgba(8,8,15,.7) 0%,rgba(8,8,15,.95) 100%);
+}
+[data-theme="light"]{
+  --bg:#fbfcff;--bg-2:#f5f6fa;--bg-elev:#ffffff;--card:rgba(255,255,255,.9);--card-solid:#ffffff;
+  --glass:rgba(15,23,42,.03);--glass-2:rgba(15,23,42,.05);
+  --border:rgba(15,23,42,.08);--border-s:rgba(15,23,42,.16);
+  --text:#0b1120;--text-mut:#475569;--text-dim:#94a3b8;
+  --shadow:0 4px 24px rgba(15,23,42,.07);--shadow-lg:0 24px 64px rgba(15,23,42,.12);
+  --glow:0 0 60px rgba(139,92,246,.15);--glow-cyan:0 0 60px rgba(6,182,212,.12);
+  --grid:rgba(139,92,246,.07);
+  --overlay:linear-gradient(180deg,rgba(251,252,255,.6) 0%,rgba(251,252,255,.97) 100%);
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;
+  overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black,transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black,transparent 70%)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none;color:inherit}
+input,select,textarea{font-family:inherit;font-size:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--violet-d);color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border-s);border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:var(--violet-d)}
+
+/* ═══════════════════════════════════════════
+   ANIMATIONS
+   ═══════════════════════════════════════════ */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.6;transform:scale(1.05)}}
+@keyframes shimmer{0%{background-position:-200% 0}100%{background-position:200% 0}}
+@keyframes gradientShift{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes drawLine{from{stroke-dashoffset:1000}to{stroke-dashoffset:0}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+
+/* ═══════════════════════════════════════════
+   SCROLL PROGRESS
+   ═══════════════════════════════════════════ */
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;
+  background:linear-gradient(90deg,var(--violet),var(--cyan),var(--amber));
+  z-index:9999;transition:width .1s linear;box-shadow:0 0 12px rgba(139,92,246,.6)}
+
+/* ═══════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════ */
+.header{position:sticky;top:0;z-index:1000;
+  background:rgba(8,8,15,.75);backdrop-filter:blur(24px) saturate(180%);
+  -webkit-backdrop-filter:blur(24px) saturate(180%);
+  border-bottom:1px solid var(--border);transition:background .3s}
+[data-theme="light"] .header{background:rgba(251,252,255,.85)}
+.header-inner{max-width:1400px;margin:0 auto;padding:1rem 2rem;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.logo{display:flex;align-items:center;gap:.7rem;
+  font-family:var(--font-d);font-size:1.4rem;font-weight:700;letter-spacing:-.02em;transition:var(--tr)}
+.logo:hover{transform:scale(1.02)}
+.logo-mark{width:44px;height:44px;border-radius:14px;position:relative;
+  background:linear-gradient(135deg,var(--violet-d),var(--indigo));
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 24px rgba(124,58,237,.4),inset 0 1px 0 rgba(255,255,255,.2);overflow:hidden}
+.logo-mark::before{content:'';position:absolute;inset:-50%;
+  background:conic-gradient(from 0deg,transparent,var(--cyan),transparent 30%);
+  animation:spin 8s linear infinite;opacity:.7}
+.logo-mark svg{position:relative;z-index:2;width:24px;height:24px;color:#fff}
+.logo-text span{color:var(--violet)}
+.nav{display:flex;gap:.3rem;align-items:center}
+.nav a{color:var(--text-mut);font-weight:500;font-size:.9rem;padding:.65rem 1.1rem;
+  border-radius:12px;transition:var(--tr);position:relative;cursor:pointer}
+.nav a:hover{color:var(--text);background:var(--glass)}
+.nav a.active{color:var(--text);background:var(--glass)}
+.nav a.active::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%);
+  width:20px;height:2px;background:linear-gradient(90deg,var(--violet),var(--cyan));border-radius:2px}
+.header-actions{display:flex;gap:.5rem;align-items:center}
+.icon-btn{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;
+  background:var(--glass);border:1px solid var(--border);color:var(--text-mut);
+  transition:var(--tr);position:relative}
+.icon-btn:hover{color:var(--text);background:var(--card);transform:translateY(-2px);
+  box-shadow:var(--shadow);border-color:var(--border-s)}
+.icon-btn svg{width:18px;height:18px}
+.menu-toggle{display:none;width:42px;height:42px;border-radius:12px;
+  background:var(--glass);border:1px solid var(--border);color:var(--text);
+  align-items:center;justify-content:center}
+
+/* ═══════════════════════════════════════════
+   BUTTONS
+   ═══════════════════════════════════════════ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;
+  padding:.8rem 1.6rem;border-radius:12px;font-weight:600;font-size:.9rem;
+  transition:var(--tr);white-space:nowrap;position:relative;
+  border:1px solid transparent;overflow:hidden}
+.btn-primary{background:linear-gradient(135deg,var(--violet-d),var(--indigo));
+  color:#fff;box-shadow:0 8px 24px rgba(124,58,237,.35),inset 0 1px 0 rgba(255,255,255,.2)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(124,58,237,.5),inset 0 1px 0 rgba(255,255,255,.2)}
+.btn-primary::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(120deg,transparent 30%,rgba(255,255,255,.3),transparent 70%);
+  transform:translateX(-100%);transition:transform .7s}
+.btn-primary:hover::after{transform:translateX(100%)}
+.btn-ghost{background:var(--glass);color:var(--text);border-color:var(--border)}
+.btn-ghost:hover{background:var(--card);border-color:var(--border-s);transform:translateY(-2px)}
+.btn-outline{background:transparent;color:var(--violet);border:1.5px solid var(--violet-d)}
+.btn-outline:hover{background:var(--violet-d);color:#fff;transform:translateY(-2px)}
+.btn-lg{padding:1rem 2rem;font-size:.98rem;border-radius:14px}
+
+/* ═══════════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════════ */
+.hero{position:relative;padding:6rem 2rem 5rem;overflow:hidden;min-height:88vh;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.35;filter:blur(2px)}
+[data-theme="light"] .hero-bg img{opacity:.2}
+.hero-bg::after{content:'';position:absolute;inset:0;background:var(--overlay)}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.35;
+  animation:float 14s ease-in-out infinite;pointer-events:none;z-index:1}
+.hero-orb-1{width:500px;height:500px;background:var(--violet-d);top:-100px;right:8%}
+.hero-orb-2{width:400px;height:400px;background:var(--cyan-d);bottom:-100px;left:5%;animation-delay:-5s}
+.hero-orb-3{width:250px;height:250px;background:var(--amber);top:35%;right:32%;animation-delay:-9s;opacity:.2}
+.hero-inner{position:relative;z-index:3;max-width:1400px;margin:0 auto;width:100%;
+  display:grid;grid-template-columns:1.15fr 1fr;gap:4rem;align-items:center}
+.hero-content{max-width:640px}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;
+  background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));
+  border:1px solid rgba(139,92,246,.35);padding:.55rem 1.1rem;border-radius:100px;
+  font-size:.8rem;font-weight:600;color:var(--violet);margin-bottom:1.6rem;backdrop-filter:blur(10px)}
+.hero-badge .dot{width:8px;height:8px;background:var(--emerald);border-radius:50%;
+  box-shadow:0 0 10px var(--emerald);animation:pulse 2s infinite}
+.hero h1{font-family:var(--font-d);font-size:clamp(2.4rem,5.5vw,4.2rem);
+  font-weight:700;line-height:1.05;letter-spacing:-.035em;margin-bottom:1.5rem}
+.gradient-text{background:linear-gradient(120deg,var(--violet) 0%,var(--cyan) 45%,var(--amber) 100%);
+  background-size:200% auto;-webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;animation:gradientShift 5s ease infinite}
+.hero-sub{font-size:clamp(1.02rem,1.6vw,1.15rem);color:var(--text-mut);
+  margin-bottom:2rem;line-height:1.75;max-width:560px}
+.hero-search{display:flex;gap:.5rem;background:var(--card);padding:.55rem;
+  border-radius:16px;border:1px solid var(--border-s);backdrop-filter:blur(20px);
+  box-shadow:var(--shadow-lg);margin-bottom:1.4rem;transition:var(--tr)}
+.hero-search:focus-within{border-color:var(--violet-d);
+  box-shadow:var(--shadow-lg),0 0 0 4px rgba(124,58,237,.18)}
+.hero-search input{flex:1;padding:1rem 1.2rem;border:none;background:transparent;
+  font-size:1rem;color:var(--text);outline:none;min-width:0}
+.hero-search input::placeholder{color:var(--text-dim)}
+.hero-search .btn{padding:1rem 1.6rem}
+.hero-quick{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.chip{padding:.45rem 1rem;background:var(--glass);border:1px solid var(--border);
+  border-radius:100px;font-size:.78rem;color:var(--text-mut);
+  transition:var(--tr);cursor:pointer;font-weight:500}
+.chip:hover{color:var(--violet);border-color:var(--violet-d);transform:translateY(-2px);background:var(--glass-2)}
+.hero-trust{display:flex;align-items:center;gap:1.2rem;padding-top:1.8rem;
+  border-top:1px solid var(--border)}
+.hero-avatars{display:flex}
+.hero-avatar{width:38px;height:38px;border-radius:50%;border:2px solid var(--bg);
+  margin-left:-10px;display:flex;align-items:center;justify-content:center;
+  color:#fff;font-weight:700;font-size:.78rem;font-family:var(--font-d)}
+.hero-avatar:first-child{margin-left:0}
+.hero-avatars-txt{font-size:.82rem;color:var(--text-mut);line-height:1.4}
+.hero-avatars-txt strong{color:var(--text);font-weight:700}
+
+/* Hero visual (right side) */
+.hero-visual{position:relative;height:540px;display:flex;align-items:center;justify-content:center}
+.hero-card{position:absolute;background:var(--card-solid);border:1px solid var(--border-s);
+  border-radius:20px;padding:1.2rem;box-shadow:var(--shadow-lg);backdrop-filter:blur(20px)}
+.hero-card-main{width:340px;height:400px;top:50%;left:50%;transform:translate(-50%,-50%);
+  padding:0;overflow:hidden;border-radius:24px}
+.hero-card-main img{width:100%;height:100%;object-fit:cover}
+.hero-card-main::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 40%,rgba(8,8,15,.95))}
+.hero-card-main-content{position:absolute;bottom:0;left:0;right:0;padding:1.6rem;z-index:2;color:#fff}
+.hero-card-main-content .badge{display:inline-block;padding:.25rem .7rem;
+  background:rgba(16,185,129,.2);border:1px solid rgba(16,185,129,.4);
+  border-radius:8px;font-size:.7rem;font-weight:700;color:#34d399;margin-bottom:.6rem}
+.hero-card-main-content h3{font-family:var(--font-d);font-size:1.2rem;font-weight:600;margin-bottom:.3rem}
+.hero-card-main-content p{font-size:.8rem;opacity:.85;margin-bottom:.8rem}
+.hero-card-main-content .salary{font-family:var(--font-d);font-size:1.1rem;font-weight:700;color:var(--amber)}
+.hero-card-float{padding:1rem 1.2rem;display:flex;gap:.8rem;align-items:center;animation:float 5s ease-in-out infinite}
+.hero-card-1{top:8%;left:0;animation-delay:-1s}
+.hero-card-2{bottom:15%;right:0;animation-delay:-3s}
+.hero-card-icon{width:44px;height:44px;border-radius:12px;display:flex;
+  align-items:center;justify-content:center;font-size:1.4rem;flex-shrink:0}
+.hero-card-1 .hero-card-icon{background:linear-gradient(135deg,rgba(139,92,246,.25),rgba(6,182,212,.15))}
+.hero-card-2 .hero-card-icon{background:linear-gradient(135deg,rgba(16,185,129,.25),rgba(251,191,36,.15))}
+.hero-card-txt strong{display:block;font-family:var(--font-d);font-size:1.05rem;font-weight:700;line-height:1}
+.hero-card-txt span{font-size:.72rem;color:var(--text-mut);font-weight:500}
+
+/* ═══════════════════════════════════════════
+   TRUST MARQUEE
+   ═══════════════════════════════════════════ */
+.marquee-wrap{padding:2.5rem 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+  background:var(--bg-2);overflow:hidden;position:relative;z-index:1}
+.marquee-label{text-align:center;font-size:.72rem;font-weight:700;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--text-dim);margin-bottom:1.2rem}
+.marquee{display:flex;gap:4rem;animation:marquee 40s linear infinite;width:max-content;padding:0 2rem}
+.marquee-item{font-family:var(--font-d);font-size:1.3rem;font-weight:600;
+  color:var(--text-dim);white-space:nowrap;transition:var(--tr);opacity:.7}
+.marquee-item:hover{color:var(--violet);opacity:1}
+.marquee-wrap:hover .marquee{animation-play-state:paused}
+
+/* ═══════════════════════════════════════════
+   SECTION COMMONS
+   ═══════════════════════════════════════════ */
+.section{max-width:1400px;margin:0 auto;padding:5.5rem 2rem;position:relative;z-index:1}
+.section-head{text-align:center;margin-bottom:3.5rem;max-width:740px;margin-left:auto;margin-right:auto}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;padding:.4rem 1rem;
+  background:var(--glass);border:1px solid var(--border);border-radius:100px;
+  font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--violet);margin-bottom:1.2rem}
+.section-head h2{font-family:var(--font-d);font-size:clamp(1.9rem,4vw,2.75rem);
+  font-weight:700;letter-spacing:-.025em;line-height:1.15;margin-bottom:1rem}
+.section-head p{color:var(--text-mut);font-size:1.05rem;line-height:1.7}
+
+/* ═══════════════════════════════════════════
+   STATS BAR
+   ═══════════════════════════════════════════ */
+.stats-bar{display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+  background:var(--card);border:1px solid var(--border-s);border-radius:var(--radius-lg);
+  overflow:hidden;backdrop-filter:blur(20px);box-shadow:var(--shadow-lg);
+  max-width:1100px;margin:0 auto}
+.stat-cell{padding:2rem 1.5rem;text-align:center;position:relative;transition:var(--tr)}
+.stat-cell:not(:last-child)::after{content:'';position:absolute;right:0;top:20%;bottom:20%;
+  width:1px;background:var(--border)}
+.stat-cell:hover{background:var(--glass)}
+.stat-cell .stat-icon{font-size:1.8rem;margin-bottom:.6rem;display:block;opacity:.85}
+.stat-cell strong{display:block;font-family:var(--font-d);font-size:2.2rem;font-weight:700;
+  letter-spacing:-.03em;line-height:1;margin-bottom:.4rem;
+  background:linear-gradient(135deg,var(--violet),var(--cyan));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.stat-cell span{font-size:.78rem;color:var(--text-mut);font-weight:500;text-transform:uppercase;letter-spacing:.06em}
+
+/* ═══════════════════════════════════════════
+   CATEGORÍAS
+   ═══════════════════════════════════════════ */
+.cats-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.cat-card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:1.6rem 1.2rem;text-align:center;transition:var(--tr);cursor:pointer;
+  position:relative;overflow:hidden;backdrop-filter:blur(12px)}
+.cat-card::before{content:'';position:absolute;inset:0;opacity:0;transition:opacity .4s;
+  background:linear-gradient(135deg,rgba(139,92,246,.15),rgba(6,182,212,.08))}
+.cat-card:hover{transform:translateY(-6px);border-color:var(--violet-d);
+  box-shadow:var(--shadow-lg),var(--glow)}
+.cat-card:hover::before{opacity:1}
+.cat-card .cat-emoji{font-size:2.2rem;margin-bottom:.7rem;display:block;
+  position:relative;z-index:1;transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.cat-card:hover .cat-emoji{transform:scale(1.15) rotate(-8deg)}
+.cat-card h4{font-family:var(--font-d);font-size:.95rem;font-weight:600;
+  margin-bottom:.3rem;position:relative;z-index:1}
+.cat-card span{font-size:.72rem;color:var(--text-mut);position:relative;z-index:1}
+
+/* ═══════════════════════════════════════════
+   CARRERAS DESTACADAS
+   ═══════════════════════════════════════════ */
+.carreras-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.6rem}
+.carrera-card{background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;position:relative;
+  transition:var(--tr);cursor:pointer;backdrop-filter:blur(12px);
+  display:flex;flex-direction:column;text-decoration:none;color:inherit}
+.carrera-card::before{content:'';position:absolute;inset:0;border-radius:inherit;padding:1px;
+  background:linear-gradient(135deg,transparent,transparent);
+  -webkit-mask:linear-gradient(#fff 0 0) content-box,linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;mask-composite:exclude;
+  transition:background .3s;pointer-events:none;z-index:5}
+.carrera-card:hover::before{background:linear-gradient(135deg,var(--violet),var(--cyan))}
+.carrera-card:hover{transform:translateY(-8px);
+  box-shadow:var(--shadow-lg),0 0 40px rgba(139,92,246,.2)}
+.carrera-head{height:170px;position:relative;overflow:hidden;background:#0a0a14}
+.carrera-head img{width:100%;height:100%;object-fit:cover;
+  transition:transform .8s cubic-bezier(.4,0,.2,1);opacity:.75}
+.carrera-card:hover .carrera-head img{transform:scale(1.08);opacity:.9}
+.carrera-head::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 20%,rgba(8,8,15,.9) 100%)}
+.carrera-emoji{position:absolute;bottom:1rem;left:1.3rem;font-size:2.6rem;z-index:3;
+  filter:drop-shadow(0 8px 20px rgba(0,0,0,.7));
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+.carrera-card:hover .carrera-emoji{transform:scale(1.12) rotate(-6deg)}
+.carrera-rating{position:absolute;top:1rem;right:1rem;z-index:6;
+  display:inline-flex;align-items:center;gap:.35rem;padding:.4rem .8rem;
+  background:rgba(0,0,0,.6);backdrop-filter:blur(10px);
+  border:1px solid rgba(251,191,36,.3);border-radius:100px;
+  font-size:.75rem;font-weight:700;color:var(--amber)}
+.carrera-body{padding:1.5rem;flex:1;display:flex;flex-direction:column;gap:.9rem}
+.carrera-body h3{font-family:var(--font-d);font-size:1.15rem;font-weight:600;
+  line-height:1.3;color:var(--text);letter-spacing:-.01em}
+.carrera-desc{font-size:.87rem;color:var(--text-mut);line-height:1.6;flex:1;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.carrera-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.tag{display:inline-flex;align-items:center;gap:.3rem;padding:.28rem .7rem;
+  border-radius:8px;font-size:.7rem;font-weight:700;letter-spacing:.01em}
+.tag-success{background:rgba(16,185,129,.15);color:#34d399;border:1px solid rgba(16,185,129,.28)}
+.tag-info{background:rgba(6,182,212,.15);color:#22d3ee;border:1px solid rgba(6,182,212,.28)}
+.tag-warn{background:rgba(245,158,11,.15);color:#fbbf24;border:1px solid rgba(245,158,11,.28)}
+.tag-violet{background:rgba(139,92,246,.15);color:#a78bfa;border:1px solid rgba(139,92,246,.28)}
+[data-theme="light"] .tag-success{color:#047857}
+[data-theme="light"] .tag-info{color:#0e7490}
+[data-theme="light"] .tag-warn{color:#b45309}
+[data-theme="light"] .tag-violet{color:#6d28d9}
+.progress{height:5px;background:var(--glass-2);border-radius:3px;overflow:hidden;position:relative}
+.progress .fill{height:100%;width:0;border-radius:3px;
+  background:linear-gradient(90deg,var(--violet-d),var(--cyan-d));
+  transition:width 1.4s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden}
+.progress .fill::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.4),transparent);
+  animation:shimmer 2.5s infinite;background-size:200% 100%}
+.salary-row{display:flex;justify-content:space-between;align-items:baseline;padding-top:.3rem;
+  border-top:1px solid var(--border);margin-top:.3rem}
+.salary-row .label{color:var(--text-dim);font-size:.68rem;text-transform:uppercase;
+  letter-spacing:.08em;font-weight:700}
+.salary-row .value{font-family:var(--font-d);font-weight:600;font-size:.95rem;color:var(--text)}
+.salary-row .value .hi{color:var(--emerald)}
+
+/* ═══════════════════════════════════════════
+   CÓMO FUNCIONA
+   ═══════════════════════════════════════════ */
+.how-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;position:relative}
+.how-grid::before{content:'';position:absolute;top:60px;left:12%;right:12%;height:2px;
+  background:linear-gradient(90deg,var(--violet-d),var(--cyan-d),var(--amber));
+  opacity:.3;z-index:0}
+.how-step{position:relative;z-index:1;text-align:center;padding:1rem}
+.how-num{width:64px;height:64px;border-radius:20px;margin:0 auto 1.3rem;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-d);font-size:1.5rem;font-weight:700;color:#fff;
+  background:linear-gradient(135deg,var(--violet-d),var(--indigo));
+  box-shadow:0 8px 24px rgba(124,58,237,.4),inset 0 1px 0 rgba(255,255,255,.25);
+  border:3px solid var(--bg);transition:var(--tr)}
+.how-step:hover .how-num{transform:scale(1.1) rotate(-5deg);
+  box-shadow:0 12px 32px rgba(124,58,237,.6),inset 0 1px 0 rgba(255,255,255,.25)}
+.how-step h4{font-family:var(--font-d);font-size:1.05rem;font-weight:600;margin-bottom:.5rem}
+.how-step p{font-size:.86rem;color:var(--text-mut);line-height:1.6}
+
+/* ═══════════════════════════════════════════
+   BENTO - POR QUÉ ELEGIRNOS
+   ═══════════════════════════════════════════ */
+.bento{display:grid;gap:1.2rem;grid-template-columns:repeat(12,1fr);grid-auto-rows:minmax(180px,auto)}
+.bento-item{background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:2rem;position:relative;
+  overflow:hidden;transition:var(--tr);backdrop-filter:blur(12px)}
+.bento-item:hover{border-color:var(--border-s);transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+.bento-item h3{font-family:var(--font-d);font-size:1.35rem;font-weight:600;
+  margin-bottom:.6rem;letter-spacing:-.015em}
+.bento-item p{color:var(--text-mut);font-size:.94rem;line-height:1.7}
+.bento-item .bento-icon{font-size:2.4rem;margin-bottom:1rem;display:block}
+.bento-feature{grid-column:span 8;grid-row:span 2;
+  background:linear-gradient(135deg,rgba(124,58,237,.18),rgba(6,182,212,.1));
+  border-color:rgba(124,58,237,.3);position:relative;overflow:hidden}
+.bento-feature::before{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle at 80% 20%,rgba(34,211,238,.15),transparent 50%)}
+.bento-feature h3{font-size:1.7rem;margin-bottom:1rem;position:relative}
+.bento-feature p{position:relative;font-size:1rem}
+.bento-feature .bento-img{position:absolute;bottom:0;right:0;width:55%;height:60%;
+  border-top-left-radius:24px;overflow:hidden;opacity:.75}
+.bento-feature .bento-img img{width:100%;height:100%;object-fit:cover;
+  transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.bento-feature:hover .bento-img img{transform:scale(1.08)}
+.bento-stat{grid-column:span 2}
+.bento-stat .stat-num{font-family:var(--font-d);font-size:2.2rem;font-weight:700;
+  letter-spacing:-.03em;line-height:1;margin-bottom:.4rem;
+  background:linear-gradient(135deg,var(--violet),var(--cyan));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.bento-stat p{font-size:.85rem;line-height:1.4}
+
+/* ═══════════════════════════════════════════
+   TEST VOCACIONAL CTA
+   ═══════════════════════════════════════════ */
+.quiz-cta{background:linear-gradient(135deg,rgba(124,58,237,.22),rgba(6,182,212,.12));
+  border:1px solid rgba(124,58,237,.35);border-radius:var(--radius-xl);
+  padding:4rem 3rem;position:relative;overflow:hidden;
+  display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:center}
+.quiz-cta::before{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle at 90% 10%,rgba(34,211,238,.2),transparent 55%),
+                   radial-gradient(circle at 10% 90%,rgba(251,191,36,.15),transparent 55%)}
+.quiz-cta-content{position:relative;z-index:2}
+.quiz-cta h2{font-family:var(--font-d);font-size:clamp(1.7rem,3.5vw,2.4rem);
+  font-weight:700;letter-spacing:-.025em;line-height:1.2;margin-bottom:1rem}
+.quiz-cta p{color:var(--text-mut);font-size:1.02rem;margin-bottom:2rem;max-width:480px}
+.quiz-features{display:flex;gap:1.5rem;flex-wrap:wrap;margin-bottom:2rem}
+.quiz-feature{display:flex;align-items:center;gap:.5rem;font-size:.85rem;
+  color:var(--text-mut);font-weight:500}
+.quiz-feature svg{width:18px;height:18px;color:var(--emerald);flex-shrink:0}
+.quiz-visual{position:relative;z-index:2;display:flex;justify-content:center}
+.quiz-mockup{width:100%;max-width:340px;background:var(--card-solid);
+  border:1px solid var(--border-s);border-radius:22px;padding:1.6rem;
+  box-shadow:var(--shadow-lg);animation:float 6s ease-in-out infinite}
+.quiz-mockup-header{display:flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
+.quiz-mockup-dot{width:10px;height:10px;border-radius:50%;background:var(--rose)}
+.quiz-mockup-dot:nth-child(2){background:var(--amber)}
+.quiz-mockup-dot:nth-child(3){background:var(--emerald)}
+.quiz-mockup-label{font-size:.75rem;color:var(--text-mut);margin-left:.4rem;font-weight:600}
+.quiz-mockup-progress{height:5px;background:var(--glass-2);border-radius:3px;margin-bottom:1.2rem;overflow:hidden}
+.quiz-mockup-progress .fill{height:100%;width:60%;
+  background:linear-gradient(90deg,var(--violet-d),var(--cyan-d));border-radius:3px}
+.quiz-mockup h5{font-family:var(--font-d);font-size:.95rem;font-weight:600;margin-bottom:1rem;line-height:1.4}
+.quiz-mockup-opt{padding:.75rem 1rem;background:var(--glass);border:1px solid var(--border);
+  border-radius:10px;font-size:.82rem;margin-bottom:.5rem;display:flex;align-items:center;gap:.6rem;color:var(--text-mut)}
+.quiz-mockup-opt.selected{background:rgba(124,58,237,.15);border-color:var(--violet-d);color:var(--text)}
+.quiz-mockup-opt .letter{width:22px;height:22px;border-radius:6px;
+  background:var(--violet-d);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:.7rem;font-weight:700;flex-shrink:0}
+
+/* ═══════════════════════════════════════════
+   TESTIMONIOS
+   ═══════════════════════════════════════════ */
+.testimonios-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.testimonio{background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);padding:2rem;position:relative;
+  transition:var(--tr);backdrop-filter:blur(12px);overflow:hidden}
+.testimonio::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--violet-d),var(--cyan-d));opacity:0;transition:opacity .3s}
+.testimonio:hover::before{opacity:1}
+.testimonio:hover{transform:translateY(-6px);border-color:var(--border-s);box-shadow:var(--shadow-lg)}
+.testimonio-quote{font-size:2.6rem;line-height:1;color:var(--violet);
+  opacity:.3;font-family:Georgia,serif;margin-bottom:.4rem}
+.testimonio-text{font-size:.94rem;color:var(--text-mut);line-height:1.75;margin-bottom:1.6rem;font-style:italic}
+.testimonio-author{display:flex;align-items:center;gap:.9rem;padding-top:1.4rem;border-top:1px solid var(--border)}
+.testimonio-avatar{width:52px;height:52px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-d);font-weight:700;color:#fff;font-size:1.05rem;
+  border:2px solid var(--border-s);overflow:hidden}
+.testimonio-avatar img{width:100%;height:100%;object-fit:cover}
+.testimonio-info strong{display:block;font-size:.92rem;font-weight:600;margin-bottom:.15rem}
+.testimonio-info span{font-size:.78rem;color:var(--text-dim)}
+.testimonio-stars{display:flex;gap:2px;margin-bottom:.8rem}
+.testimonio-stars svg{width:16px;height:16px;color:var(--amber);fill:var(--amber)}
+
+/* ═══════════════════════════════════════════
+   ARTÍCULOS / BLOG
+   ═══════════════════════════════════════════ */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}
+.blog-card{background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius-lg);overflow:hidden;transition:var(--tr);
+  cursor:pointer;display:flex;flex-direction:column}
+.blog-card:hover{transform:translateY(-6px);border-color:var(--violet-d);box-shadow:var(--shadow-lg)}
+.blog-img{height:190px;overflow:hidden;position:relative}
+.blog-img img{width:100%;height:100%;object-fit:cover;
+  transition:transform .6s cubic-bezier(.4,0,.2,1)}
+.blog-card:hover .blog-img img{transform:scale(1.08)}
+.blog-cat{position:absolute;top:1rem;left:1rem;padding:.35rem .85rem;
+  background:rgba(0,0,0,.7);backdrop-filter:blur(10px);
+  border-radius:100px;font-size:.7rem;font-weight:700;color:#fff;
+  letter-spacing:.05em;text-transform:uppercase}
+.blog-body{padding:1.5rem;flex:1;display:flex;flex-direction:column}
+.blog-meta{font-size:.75rem;color:var(--text-dim);margin-bottom:.7rem;font-weight:600;
+  display:flex;align-items:center;gap:.5rem}
+.blog-body h4{font-family:var(--font-d);font-size:1.05rem;font-weight:600;
+  line-height:1.4;margin-bottom:.7rem;transition:var(--tr)}
+.blog-card:hover .blog-body h4{color:var(--violet)}
+.blog-body p{font-size:.86rem;color:var(--text-mut);line-height:1.6;flex:1;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-bottom:1rem}
+.blog-link{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;
+  font-weight:600;color:var(--violet);transition:var(--tr)}
+.blog-card:hover .blog-link{gap:.7rem}
+
+/* ═══════════════════════════════════════════
+   NEWSLETTER
+   ═══════════════════════════════════════════ */
+.newsletter{background:linear-gradient(135deg,rgba(124,58,237,.2),rgba(6,182,212,.1));
+  border:1px solid rgba(124,58,237,.3);border-radius:var(--radius-xl);
+  padding:4rem 2rem;text-align:center;position:relative;overflow:hidden;
+  max-width:900px;margin:0 auto}
+.newsletter::before{content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle at 20% 30%,rgba(251,191,36,.15),transparent 50%),
+                   radial-gradient(circle at 80% 70%,rgba(34,211,238,.15),transparent 50%)}
+.newsletter-inner{position:relative;z-index:2;max-width:560px;margin:0 auto}
+.newsletter h2{font-family:var(--font-d);font-size:clamp(1.6rem,3vw,2.1rem);
+  font-weight:700;letter-spacing:-.02em;margin-bottom:.8rem}
+.newsletter p{color:var(--text-mut);margin-bottom:2rem;font-size:1rem}
+.newsletter-form{display:flex;gap:.5rem;background:var(--card-solid);padding:.45rem;
+  border-radius:16px;border:1px solid var(--border-s);
+  box-shadow:var(--shadow-lg);margin-bottom:1rem}
+.newsletter-form input{flex:1;padding:.9rem 1.2rem;background:transparent;
+  border:none;color:var(--text);font-size:.94rem;outline:none;min-width:0}
+.newsletter-form input::placeholder{color:var(--text-dim)}
+.newsletter-note{font-size:.78rem;color:var(--text-dim)}
+
+/* ═══════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════ */
+.footer{background:var(--bg-2);border-top:1px solid var(--border);
+  padding:4.5rem 2rem 2rem;position:relative;z-index:1;margin-top:4rem}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,var(--violet),transparent)}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand .logo{margin-bottom:1.2rem}
+.footer-brand p{font-size:.88rem;color:var(--text-mut);line-height:1.75;margin-bottom:1.5rem}
+.footer-social{display:flex;gap:.5rem}
+.social-btn{width:38px;height:38px;border-radius:11px;background:var(--glass);
+  border:1px solid var(--border);display:flex;align-items:center;justify-content:center;
+  color:var(--text-mut);transition:var(--tr)}
+.social-btn:hover{color:var(--violet);border-color:var(--violet-d);transform:translateY(-3px);
+  background:var(--card)}
+.social-btn svg{width:16px;height:16px}
+.footer-col h4{font-family:var(--font-d);font-size:.92rem;font-weight:600;
+  margin-bottom:1.3rem;color:var(--text)}
+.footer-col a{font-size:.86rem;color:var(--text-mut);line-height:2.1;display:block;
+  transition:var(--tr);cursor:pointer}
+.footer-col a:hover{color:var(--violet);transform:translateX(4px)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.6rem;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:1rem;font-size:.82rem;color:var(--text-dim);flex-wrap:wrap}
+.footer-bottom a{color:var(--text-mut);font-weight:500}
+.footer-bottom a:hover{color:var(--violet)}
+
+/* ═══════════════════════════════════════════
+   BACK TO TOP
+   ═══════════════════════════════════════════ */
+.back-top{position:fixed;bottom:2rem;right:2rem;z-index:900;
+  width:52px;height:52px;border-radius:16px;
+  background:linear-gradient(135deg,var(--violet-d),var(--indigo));
+  color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 28px rgba(124,58,237,.5);
+  opacity:0;pointer-events:none;transition:var(--tr)}
+.back-top.show{opacity:1;pointer-events:auto}
+.back-top:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(124,58,237,.65)}
+.back-top svg{width:22px;height:22px}
+
+/* ═══════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════ */
+@media(max-width:1100px){
+  .hero-inner{grid-template-columns:1fr;gap:3rem;text-align:center}
+  .hero-content{max-width:100%;margin:0 auto}
+  .hero-search{margin-left:auto;margin-right:auto;max-width:640px}
+  .hero-quick{justify-content:center}
+  .hero-trust{justify-content:center;flex-wrap:wrap}
+  .hero-visual{display:none}
+  .cats-grid{grid-template-columns:repeat(3,1fr)}
+  .stats-bar{grid-template-columns:repeat(2,1fr)}
+  .stat-cell:nth-child(2)::after{display:none}
+  .stat-cell:nth-child(1)::after,.stat-cell:nth-child(2)::after{bottom:0;top:auto;left:20%;right:20%;width:auto;height:1px}
+  .how-grid{grid-template-columns:repeat(2,1fr);gap:2rem}
+  .how-grid::before{display:none}
+  .bento-feature{grid-column:span 12;grid-row:auto}
+  .bento-stat{grid-column:span 6}
+  .quiz-cta{grid-template-columns:1fr;text-align:center;padding:3rem 2rem}
+  .quiz-cta p{margin-left:auto;margin-right:auto}
+  .quiz-features{justify-content:center}
+  .testimonios-grid{grid-template-columns:1fr 1fr}
+  .blog-grid{grid-template-columns:1fr 1fr}
+  .footer-top{grid-template-columns:1.5fr 1fr 1fr;gap:2rem}
+}
+@media(max-width:768px){
+  .nav{position:fixed;top:78px;left:1rem;right:1rem;flex-direction:column;
+    padding:1rem;gap:.3rem;background:var(--bg-elev);
+    border:1px solid var(--border);border-radius:var(--radius);
+    box-shadow:var(--shadow-lg);transform:translateY(-12px);
+    opacity:0;pointer-events:none;transition:var(--tr)}
+  .nav.open{transform:translateY(0);opacity:1;pointer-events:auto}
+  .nav a{width:100%;padding:.9rem 1rem;text-align:left}
+  .menu-toggle{display:flex}
+  .header-actions .icon-btn:not(.keep){display:none}
+  .cats-grid{grid-template-columns:repeat(2,1fr)}
+  .carreras-grid{grid-template-columns:1fr;gap:1.2rem}
+  .how-grid{grid-template-columns:1fr}
+  .bento-stat{grid-column:span 12}
+  .testimonios-grid,.blog-grid{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr;gap:2rem}
+  .stat-cell strong{font-size:1.7rem}
+}
+@media(max-width:600px){
+  .header-inner{padding:.9rem 1.2rem}
+  .hero{padding:4rem 1.2rem 3rem;min-height:auto}
+  .section{padding:3.5rem 1.2rem}
+  .hero-search{flex-direction:column;padding:.6rem}
+  .hero-search .btn{width:100%}
+  .stats-bar{grid-template-columns:1fr}
+  .stat-cell:not(:last-child)::after{display:none}
+  .stat-cell:not(:last-child){border-bottom:1px solid var(--border)}
+  .bento-item{padding:1.5rem}
+  .bento-feature{padding:2rem 1.5rem}
+  .quiz-cta{padding:2rem 1.5rem}
+  .newsletter{padding:2.5rem 1.2rem}
+  .newsletter-form{flex-direction:column;padding:.5rem}
+  .newsletter-form .btn{width:100%}
+  .back-top{bottom:1.2rem;right:1.2rem;width:46px;height:46px}
+  .marquee-item{font-size:1rem}
+  .marquee{gap:2.5rem}
+}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- ═══════════ HEADER ═══════════ -->
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/>
+        </svg>
+      </div>
+      <div class="logo-text">Directorio<span>PY</span></div>
+    </a>
+    <nav class="nav" id="mainNav">
+      <a href="index.html" class="active">Inicio</a>
+      <a href="carreras.html">Carreras</a>
+      <a href="test.html">Test vocacional</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn keep" onclick="toggleTheme()" aria-label="Cambiar tema" title="Modo claro/oscuro">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg>
+      </button>
+      <button class="icon-btn" onclick="location.href='carreras.html'" aria-label="Buscar" title="Buscar carreras">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      </button>
+      <button class="menu-toggle" onclick="toggleMenu(event)" aria-label="Menú">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" width="20" height="20">
+          <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80" alt="Universidad" loading="eager">
+  </div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-badge">
+        <span class="dot"></span>
+        <span>Actualizado · Temporada 2026</span>
+      </div>
+      <h1>Encuentra la carrera que <span class="gradient-text">definirá tu futuro</span></h1>
+      <p class="hero-sub">Explora las 15 profesiones con mayor demanda laboral en Paraguay. Datos reales de salarios, empleabilidad, universidades y desafíos para tomar la mejor decisión.</p>
+
+      <div class="hero-search">
+        <input type="text" id="heroSearch" placeholder="Busca: Ingeniería, Salud, Tecnología..." onkeydown="if(event.key==='Enter')buscar()">
+        <button class="btn btn-primary" onclick="buscar()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          Buscar
+        </button>
+      </div>
+
+      <div class="hero-quick">
+        <span class="chip" onclick="quickSearch('ingenieria')">⚡ Ingenierías</span>
+        <span class="chip" onclick="quickSearch('salud')">🩺 Salud</span>
+        <span class="chip" onclick="quickSearch('tecnologia')">💻 Tecnología</span>
+        <span class="chip" onclick="quickSearch('negocios')">📊 Negocios</span>
+        <span class="chip" onclick="quickSearch('diseno')">🎨 Diseño</span>
+      </div>
+
+      <div class="hero-trust">
+        <div class="hero-avatars">
+          <div class="hero-avatar" style="background:linear-gradient(135deg,#8b5cf6,#6366f1)">JP</div>
+          <div class="hero-avatar" style="background:linear-gradient(135deg,#06b6d4,#14b8a6)">MG</div>
+          <div class="hero-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">CB</div>
+          <div class="hero-avatar" style="background:linear-gradient(135deg,#10b981,#059669)">AV</div>
+        </div>
+        <div class="hero-avatars-txt">
+          <strong>+2.500 estudiantes</strong><br>
+          ya encontraron su vocación
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card hero-card-main">
+        <img src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&q=80" alt="Ingeniería">
+        <div class="hero-card-main-content">
+          <div class="badge">🔥 TOP #1</div>
+          <h3>Ingeniería en Electricidad</h3>
+          <p>La carrera más demandada del país</p>
+          <div class="salary">Gs. 5M — 20M <span style="font-size:.75rem;opacity:.7;color:#fff">/mes</span></div>
+        </div>
+      </div>
+
+      <div class="hero-card hero-card-float hero-card-1">
+        <div class="hero-card-icon">📈</div>
+        <div class="hero-card-txt">
+          <strong>97%</strong>
+          <span>Empleabilidad</span>
+        </div>
+      </div>
+
+      <div class="hero-card hero-card-float hero-card-2">
+        <div class="hero-card-icon">💰</div>
+        <div class="hero-card-txt">
+          <strong>Gs. 40M</strong>
+          <span>Salario tope</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TRUST MARQUEE ═══════════ -->
+<div class="marquee-wrap">
+  <div class="marquee-label">Datos basados en universidades e instituciones líderes del Paraguay</div>
+  <div class="marquee">
+    <span class="marquee-item">Universidad Nacional de Asunción</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">Universidad Católica</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">Universidad Americana</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">Itaipú Binacional</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">ANDE</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">Banco Central del Paraguay</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">UTIC</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">Universidad Nacional de Asunción</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">Universidad Católica</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">Universidad Americana</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">Itaipú Binacional</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">ANDE</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">Banco Central del Paraguay</span>
+    <span class="marquee-item">·</span>
+    <span class="marquee-item">UTIC</span>
+  </div>
+</div>
+
+<!-- ═══════════ STATS ═══════════ -->
+<section class="section" style="padding-top:4rem;padding-bottom:3rem">
+  <div class="stats-bar reveal">
+    <div class="stat-cell">
+      <span class="stat-icon">📚</span>
+      <strong data-count="15">0</strong>
+      <span>Carreras analizadas</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-icon">🎯</span>
+      <strong data-count="97" data-suffix="%">0</strong>
+      <span>Máx. empleabilidad</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-icon">💰</span>
+      <strong data-count="40" data-suffix="M">0</strong>
+      <span>Salario tope (Gs.)</span>
+    </div>
+    <div class="stat-cell">
+      <span class="stat-icon">🏛️</span>
+      <strong data-count="50" data-prefix="+">0</strong>
+      <span>Universidades</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CATEGORÍAS ═══════════ -->
+<section class="section" style="padding-top:2rem">
+  <div class="section-head reveal">
+    <span class="eyebrow">✨ Explora por área</span>
+    <h2>Encuentra tu campo ideal</h2>
+    <p>Cinco grandes áreas profesionales, cada una con sus carreras más demandadas y oportunidades reales de crecimiento.</p>
+  </div>
+  <div class="cats-grid">
+    <div class="cat-card reveal" onclick="quickSearch('ingenieria')">
+      <span class="cat-emoji">⚡</span>
+      <h4>Ingenierías</h4>
+      <span>5 carreras</span>
+    </div>
+    <div class="cat-card reveal reveal-d1" onclick="quickSearch('tecnologia')">
+      <span class="cat-emoji">💻</span>
+      <h4>Tecnología</h4>
+      <span>2 carreras</span>
+    </div>
+    <div class="cat-card reveal reveal-d2" onclick="quickSearch('salud')">
+      <span class="cat-emoji">🩺</span>
+      <h4>Salud</h4>
+      <span>3 carreras</span>
+    </div>
+    <div class="cat-card reveal reveal-d3" onclick="quickSearch('negocios')">
+      <span class="cat-emoji">📊</span>
+      <h4>Negocios</h4>
+      <span>4 carreras</span>
+    </div>
+    <div class="cat-card reveal reveal-d4" onclick="quickSearch('diseno')">
+      <span class="cat-emoji">🎨</span>
+      <h4>Diseño</h4>
+      <span>1 carrera</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CARRERAS DESTACADAS ═══════════ -->
+<section class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">🏆 Top carreras 2026</span>
+    <h2>Las más demandadas por el mercado</h2>
+    <p>Datos reales de empleabilidad y salarios de las 6 profesiones con mayor inserción laboral en Paraguay.</p>
+  </div>
+  <div class="carreras-grid" id="carrerasGrid"></div>
+  <div style="text-align:center;margin-top:3.5rem">
+    <a href="carreras.html" class="btn btn-primary btn-lg">
+      Ver las 15 carreras completas
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════ CÓMO FUNCIONA ═══════════ -->
+<section class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">🎓 Paso a paso</span>
+    <h2>Descubre tu carrera en 4 pasos</h2>
+    <p>Un proceso simple y guiado para tomar la decisión más importante de tu vida profesional.</p>
+  </div>
+  <div class="how-grid">
+    <div class="how-step reveal">
+      <div class="how-num">01</div>
+      <h4>Explora</h4>
+      <p>Navega las 15 carreras con datos completos de salarios, empleabilidad y universidades.</p>
+    </div>
+    <div class="how-step reveal reveal-d1">
+      <div class="how-num">02</div>
+      <h4>Haz el test</h4>
+      <p>Responde 5 preguntas y descubre qué carreras encajan mejor con tu perfil personal.</p>
+    </div>
+    <div class="how-step reveal reveal-d2">
+      <div class="how-num">03</div>
+      <h4>Compara</h4>
+      <p>Analiza salarios, desafíos y oportunidades laborales de las carreras que te interesan.</p>
+    </div>
+    <div class="how-step reveal reveal-d3">
+      <div class="how-num">04</div>
+      <h4>Decide</h4>
+      <p>Toma una decisión informada y comienza tu camino hacia un futuro profesional exitoso.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BENTO - POR QUÉ ELEGIRNOS ═══════════ -->
+<section class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">💎 Por qué DirectorioPY</span>
+    <h2>La plataforma más completa del país</h2>
+    <p>Recopilamos y verificamos información de fuentes oficiales para darte la guía más confiable.</p>
+  </div>
+  <div class="bento">
+    <div class="bento-item bento-feature reveal">
+      <span class="bento-icon">📊</span>
+      <h3>Datos verificados y actualizados</h3>
+      <p>Cada cifra está respaldada por fuentes oficiales: BCP, MTESS, ministerios, universidades y estudios de mercado. Revisamos todo anualmente para reflejar la realidad laboral paraguaya actual.</p>
+      <div class="bento-img">
+        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Análisis de datos">
+      </div>
+    </div>
+    <div class="bento-item bento-stat reveal reveal-d1">
+      <div class="stat-num">+15</div>
+      <p>Carreras analizadas a fondo</p>
+    </div>
+    <div class="bento-item bento-stat reveal reveal-d2">
+      <div class="stat-num">100%</div>
+      <p>Gratis y sin publicidad intrusiva</p>
+    </div>
+    <div class="bento-item bento-stat reveal reveal-d3">
+      <div class="stat-num">2 min</div>
+      <p>Test vocacional express</p>
+    </div>
+    <div class="bento-item bento-stat reveal reveal-d4">
+      <div class="stat-num">+50</div>
+      <p>Universidades del país</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TEST VOCACIONAL CTA ═══════════ -->
+<section class="section">
+  <div class="quiz-cta reveal">
+    <div class="quiz-cta-content">
+      <span class="eyebrow" style="background:rgba(139,92,246,.2);border-color:rgba(139,92,246,.4)">🎯 Test vocacional</span>
+      <h2>¿No sabes qué estudiar? Descúbrelo en 2 minutos</h2>
+      <p>Responde 5 preguntas simples y nuestro algoritmo te recomendará las 3 mejores carreras según tus intereses, habilidades y metas profesionales.</p>
+      <div class="quiz-features">
+        <div class="quiz-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Resultado instantáneo
+        </div>
+        <div class="quiz-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          Sin registro
+        </div>
+        <div class="quiz-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+          100% gratis
+        </div>
+      </div>
+      <a href="test.html" class="btn btn-primary btn-lg">
+        Iniciar test vocacional
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+    <div class="quiz-visual">
+      <div class="quiz-mockup">
+        <div class="quiz-mockup-header">
+          <div class="quiz-mockup-dot"></div>
+          <div class="quiz-mockup-dot"></div>
+          <div class="quiz-mockup-dot"></div>
+          <span class="quiz-mockup-label">Pregunta 3 de 5</span>
+        </div>
+        <div class="quiz-mockup-progress"><div class="fill"></div></div>
+        <h5>¿Qué actividad disfrutarías más en tu día a día?</h5>
+        <div class="quiz-mockup-opt selected">
+          <div class="letter">A</div>
+          Resolver problemas técnicos
+        </div>
+        <div class="quiz-mockup-opt">
+          <div class="letter">B</div>
+          Ayudar a las personas
+        </div>
+        <div class="quiz-mockup-opt">
+          <div class="letter">C</div>
+          Diseñar espacios creativos
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ TESTIMONIOS ═══════════ -->
+<section class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">💬 Testimonios</span>
+    <h2>Historias reales de profesionales</h2>
+    <p>Conoce cómo DirectorioPY ayudó a otros paraguayos a encontrar su camino.</p>
+  </div>
+  <div class="testimonios-grid">
+    <div class="testimonio reveal">
+      <div class="testimonio-quote">"</div>
+      <div class="testimonio-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="testimonio-text">Elegí Ingeniería Eléctrica gracias al consejo que encontré en DirectorioPY. Hoy trabajo en la ANDE con un salario que nunca imaginé en mi primer año.</p>
+      <div class="testimonio-author">
+        <div class="testimonio-avatar">
+          <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="María">
+        </div>
+        <div class="testimonio-info">
+          <strong>María González</strong>
+          <span>Ing. Eléctrica · ANDE</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonio reveal reveal-d1">
+      <div class="testimonio-quote">"</div>
+      <div class="testimonio-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="testimonio-text">La sección de Ciencias de Datos me abrió los ojos. En 2 años pasé de soporte técnico a científico de datos remoto para una empresa de USA ganando en dólares.</p>
+      <div class="testimonio-author">
+        <div class="testimonio-avatar">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="Carlos">
+        </div>
+        <div class="testimonio-info">
+          <strong>Carlos Benítez</strong>
+          <span>Data Scientist · Remoto</span>
+        </div>
+      </div>
+    </div>
+    <div class="testimonio reveal reveal-d2">
+      <div class="testimonio-quote">"</div>
+      <div class="testimonio-stars">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+      </div>
+      <p class="testimonio-text">La guía fue clave para decidirme por Medicina. Los desafíos descritos son reales, pero la recompensa personal y profesional es enorme.</p>
+      <div class="testimonio-author">
+        <div class="testimonio-avatar">
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80" alt="Ana">
+        </div>
+        <div class="testimonio-info">
+          <strong>Ana Villalba</strong>
+          <span>Médica · Hospital Privado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ BLOG / ARTÍCULOS ═══════════ -->
+<section class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">📖 Recursos</span>
+    <h2>Artículos y guías para tu decisión</h2>
+    <p>Contenido actualizado para ayudarte a entender el mercado laboral paraguayo.</p>
+  </div>
+  <div class="blog-grid">
+    <article class="blog-card reveal">
+      <div class="blog-img">
+        <span class="blog-cat">Guía</span>
+        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80" alt="Guía de carreras">
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta">📅 15 Mar 2026 · 8 min lectura</div>
+        <h4>Cómo elegir tu carrera en Paraguay: 7 factores clave</h4>
+        <p>Descubre los criterios fundamentales que debes considerar antes de elegir tu profesión, desde el mercado laboral hasta tus pasiones personales.</p>
+        <span class="blog-link">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </article>
+    <article class="blog-card reveal reveal-d1">
+      <div class="blog-img">
+        <span class="blog-cat">Análisis</span>
+        <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&q=80" alt="Salarios">
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta">📅 8 Mar 2026 · 6 min lectura</div>
+        <h4>Salarios 2026: las carreras mejor pagadas del país</h4>
+        <p>Análisis detallado de los rangos salariales actuales por carrera. Descubre cuánto puedes ganar con tu profesión.</p>
+        <span class="blog-link">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </article>
+    <article class="blog-card reveal reveal-d2">
+      <div class="blog-img">
+        <span class="blog-cat">Tendencias</span>
+        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=600&q=80" alt="Tendencias">
+      </div>
+      <div class="blog-body">
+        <div class="blog-meta">📅 1 Mar 2026 · 10 min lectura</div>
+        <h4>Las 5 carreras del futuro en Paraguay hasta 2030</h4>
+        <p>Proyecciones del mercado laboral paraguayo para la próxima década. Descubre qué profesiones crecerán más.</p>
+        <span class="blog-link">Leer más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ═══════════ NEWSLETTER ═══════════ -->
+<section class="section">
+  <div class="newsletter reveal">
+    <div class="newsletter-inner">
+      <span class="eyebrow">📧 Newsletter</span>
+      <h2>Recibe datos y actualizaciones</h2>
+      <p>Salarios, becas, nuevas carreras y tendencias del mercado laboral paraguayo directo a tu correo. Sin spam, prometido.</p>
+      <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+        <input type="email" id="newsEmail" placeholder="tu@email.com" required aria-label="Correo">
+        <button type="submit" class="btn btn-primary">Suscribirme</button>
+      </form>
+      <div class="newsletter-note">🔒 Tu correo está seguro. Puedes darte de baja en cualquier momento.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-mark">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+          </div>
+          <div class="logo-text">Directorio<span>PY</span></div>
+        </a>
+        <p>La guía definitiva para elegir tu carrera profesional en Paraguay. Datos reales, actualizados y verificados para tu futuro.</p>
+        <div class="footer-social">
+          <a class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a class="social-btn" aria-label="Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+          <a class="social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.063 2.063 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+          <a class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Explorar</h4>
+        <a href="index.html">Inicio</a>
+        <a href="carreras.html">Carreras</a>
+        <a href="test.html">Test vocacional</a>
+        <a href="faq.html">Preguntas frecuentes</a>
+        <a href="contacto.html">Contacto</a>
+      </div>
+      <div class="footer-col">
+        <h4>Carreras top</h4>
+        <a href="carreras.html?area=ingenieria">Ingenierías</a>
+        <a href="carreras.html?area=tecnologia">Tecnología</a>
+        <a href="carreras.html?area=salud">Salud</a>
+        <a href="carreras.html?area=negocios">Negocios</a>
+        <a href="carreras.html?area=diseno">Diseño</a>
+      </div>
+      <div class="footer-col">
+        <h4>Recursos</h4>
+        <a href="carreras.html">Salarios 2026</a>
+        <a href="carreras.html">Guía de carreras</a>
+        <a href="faq.html">Cómo elegir</a>
+        <a href="faq.html">Universidades</a>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <a href="mailto:hola@directoriopy.com">hola@directoriopy.com</a>
+        <a href="tel:+595210000000">+595 21 000 000</a>
+        <a>Asunción, Paraguay</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 <strong>DirectorioPY</strong>. Todos los derechos reservados.</div>
+      <div>
+        <a href="#">Privacidad</a> · <a href="#">Términos</a> · Hecho con ❤️ en Paraguay
+      </div>
+    </div>
+  </div>
+</footer>
+
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Volver arriba">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 19V5M5 12l7-7 7 7"/>
+  </svg>
+</button>
+
+<script>
+/* ═══════════ THEME ═══════════ */
+(function(){const t=localStorage.getItem('dp_theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
+function toggleTheme(){
+  const c=document.documentElement.getAttribute('data-theme');
+  const n=c==='dark'?'light':'dark';
+  document.documentElement.setAttribute('data-theme',n);
+  localStorage.setItem('dp_theme',n);
+  updateThemeIcon();
+}
+function updateThemeIcon(){
+  const i=document.getElementById('themeIcon');if(!i)return;
+  const d=document.documentElement.getAttribute('data-theme')==='dark';
+  i.innerHTML=d
+    ? '<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>'
+    : '<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>';
+}
+
+/* ═══════════ MENU ═══════════ */
+function toggleMenu(e){if(e)e.stopPropagation();document.getElementById('mainNav').classList.toggle('open')}
+document.addEventListener('click',e=>{
+  const n=document.getElementById('mainNav');
+  if(n&&n.classList.contains('open')&&!n.contains(e.target)&&!e.target.closest('.menu-toggle'))n.classList.remove('open');
+});
+
+/* ═══════════ CARRERAS DATA ═══════════ */
+const CARRERAS=[
+{slug:'ingenieria-electricidad',nombre:'Ingeniería en Electricidad',icono:'⚡',empleabilidad:97,salarioMin:5000000,salarioMax:20000000,rating:4.9,img:'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=600&q=75',descripcion:'La carrera con mayor empleabilidad en Paraguay. Industrias y sector energético demandan más profesionales de los que egresan.'},
+{slug:'ingenieria-electronica',nombre:'Ingeniería en Electrónica',icono:'🔌',empleabilidad:97,salarioMin:5500000,salarioMax:22000000,rating:4.9,img:'https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=75',descripcion:'Automatización, IoT, telecomunicaciones y equipamiento médico. Alta demanda en industrias tecnológicas.'},
+{slug:'medicina',nombre:'Medicina',icono:'🩺',empleabilidad:95,salarioMin:3351057,salarioMax:18401588,rating:4.8,img:'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=600&q=75',descripcion:'El mayor techo salarial del país. Combina ciencia, humanismo y servicio a la comunidad.'},
+{slug:'ciencia-datos-ia',nombre:'Ciencias de Datos / IA',icono:'🤖',empleabilidad:92,salarioMin:5000000,salarioMax:15000000,rating:4.9,img:'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=75',descripcion:'Perfil emergente con alta demanda. Trabajo remoto internacional con salarios en dólares.'},
+{slug:'ingenieria-civil',nombre:'Ingeniería Civil',icono:'🏗️',empleabilidad:90,salarioMin:4337986,salarioMax:17612769,rating:4.7,img:'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=75',descripcion:'Obras viales, edificios, puentes y proyectos de infraestructura que transforman el país.'},
+{slug:'ingenieria-informatica',nombre:'Ingeniería Informática / Software',icono:'💻',empleabilidad:90,salarioMin:3864110,salarioMax:12932477,rating:4.8,img:'https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&q=75',descripcion:'Los programadores están entre los más requeridos, con campo laboral global y trabajo remoto.'}
+];
+
+function formatGs(n){return n.toLocaleString('es-PY')}
+function empClass(e){return e>=90?'tag-success':e>=80?'tag-warn':'tag-info'}
+
+function renderCarreras(){
+  const grid=document.getElementById('carrerasGrid');
+  if(!grid)return;
+  grid.innerHTML=CARRERAS.map((c,i)=>`
+    <a href="carreras.html?slug=${c.slug}" class="carrera-card reveal ${i>0?'reveal-d'+Math.min(i,4):''}">
+      <div class="carrera-head">
+        <img src="${c.img}" alt="${c.nombre}" loading="lazy" onerror="this.style.display='none'">
+        <div class="carrera-emoji">${c.icono}</div>
+        <div class="carrera-rating">⭐ ${c.rating}</div>
+      </div>
+      <div class="carrera-body">
+        <h3>${c.nombre}</h3>
+        <p class="carrera-desc">${c.descripcion}</p>
+        <div class="carrera-tags">
+          <span class="tag ${empClass(c.empleabilidad)}">📈 ${c.empleabilidad}% empleabilidad</span>
+        </div>
+        <div class="progress"><div class="fill" data-width="${c.empleabilidad}" style="width:0"></div></div>
+        <div class="salary-row">
+          <span class="label">Salario mensual</span>
+          <span class="value">Gs. ${formatGs(c.salarioMin)} — <span class="hi">${formatGs(c.salarioMax)}</span></span>
+        </div>
+      </div>
+    </a>`).join('');
+  // activar reveal
+  setTimeout(()=>{grid.querySelectorAll('.reveal').forEach(el=>obs.observe(el))},50);
+  // animar progress
+  requestAnimationFrame(()=>{
+    grid.querySelectorAll('.progress .fill').forEach(el=>el.style.width=el.dataset.width+'%');
+  });
+}
+
+/* ═══════════ SEARCH ═══════════ */
+function buscar(){
+  const q=document.getElementById('heroSearch').value.trim();
+  if(q)location.href='carreras.html?q='+encodeURIComponent(q);
+}
+function quickSearch(area){location.href='carreras.html?area='+area}
+
+/* ═══════════ NEWSLETTER ═══════════ */
+function handleNewsletter(e){
+  e.preventDefault();
+  const email=document.getElementById('newsEmail').value;
+  const btn=e.target.querySelector('button');
+  btn.disabled=true;btn.textContent='Enviando...';
+  setTimeout(()=>{
+    btn.textContent='✓ ¡Listo!';
+    setTimeout(()=>{btn.textContent='Suscribirme';btn.disabled=false;e.target.reset()},1500);
+  },600);
+}
+
+/* ═══════════ SCROLL PROGRESS ═══════════ */
+let ticking=false;
+window.addEventListener('scroll',()=>{
+  if(ticking)return;ticking=true;
+  requestAnimationFrame(()=>{
+    const s=window.scrollY;
+    const h=document.documentElement.scrollHeight-window.innerHeight;
+    const pct=h>0?(s/h)*100:0;
+    const prog=document.getElementById('scrollProgress');
+    if(prog)prog.style.width=pct+'%';
+    const bt=document.getElementById('backTop');
+    if(bt)bt.classList.toggle('show',s>500);
+    ticking=false;
+  });
+},{passive:true});
+
+/* ═══════════ REVEAL OBSERVER ═══════════ */
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}
+  })
+},{threshold:.12,rootMargin:'0px 0px -60px 0px'});
+
+/* ═══════════ COUNTERS ═══════════ */
+function animCounters(){
+  document.querySelectorAll('[data-count]').forEach(el=>{
+    const target=parseInt(el.dataset.count);
+    const pre=el.dataset.prefix||'';
+    const suf=el.dataset.suffix||'';
+    let cur=0;
+    const step=Math.max(target/50,0.5);
+    const timer=setInterval(()=>{
+      cur+=step;
+      if(cur>=target){cur=target;clearInterval(timer)}
+      el.textContent=pre+Math.round(cur)+suf;
+    },28);
+  });
+}
+
+/* ═══════════ INIT ═══════════ */
+document.addEventListener('DOMContentLoaded',()=>{
+  updateThemeIcon();
+  renderCarreras();
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  setTimeout(animCounters,600);
+});
+</script>
+</body>
+</html>

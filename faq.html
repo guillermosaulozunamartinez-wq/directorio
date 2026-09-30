@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Preguntas frecuentes sobre carreras, salarios, universidades, becas y el sistema educativo paraguayo.">
+<title>Preguntas Frecuentes — DirectorioPY</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--violet:#8b5cf6;--violet-d:#7c3aed;--indigo:#4f46e5;--cyan:#22d3ee;--cyan-d:#06b6d4;--amber:#fbbf24;--orange:#f59e0b;--emerald:#10b981;--rose:#f43f5e;--radius:16px;--radius-lg:24px;--radius-xl:32px;--tr:.3s cubic-bezier(.4,0,.2,1);--font:'Inter',sans-serif;--font-d:'Space Grotesk',sans-serif}
+[data-theme="dark"]{--bg:#08080f;--bg-2:#0d0d18;--bg-elev:#12121f;--card:rgba(22,22,38,.6);--card-solid:#16162a;--glass:rgba(255,255,255,.035);--glass-2:rgba(255,255,255,.06);--border:rgba(255,255,255,.07);--border-s:rgba(255,255,255,.14);--text:#f4f4f8;--text-mut:#9ca3ba;--text-dim:#6b7280;--shadow:0 4px 24px rgba(0,0,0,.4);--shadow-lg:0 24px 64px rgba(0,0,0,.6);--glow:0 0 60px rgba(139,92,246,.25);--grid:rgba(139,92,246,.05);--overlay:linear-gradient(180deg,rgba(8,8,15,.75),rgba(8,8,15,.98))}
+[data-theme="light"]{--bg:#fbfcff;--bg-2:#f5f6fa;--bg-elev:#fff;--card:rgba(255,255,255,.9);--card-solid:#fff;--glass:rgba(15,23,42,.03);--glass-2:rgba(15,23,42,.05);--border:rgba(15,23,42,.08);--border-s:rgba(15,23,42,.16);--text:#0b1120;--text-mut:#475569;--text-dim:#94a3b8;--shadow:0 4px 24px rgba(15,23,42,.07);--shadow-lg:0 24px 64px rgba(15,23,42,.12);--glow:0 0 60px rgba(139,92,246,.15);--grid:rgba(139,92,246,.07);--overlay:linear-gradient(180deg,rgba(251,252,255,.7),rgba(251,252,255,.98))}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s;position:relative}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black,transparent 70%)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none;color:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--violet-d);color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-thumb{background:var(--border-s);border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:var(--violet-d)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes slideUpIn{from{opacity:0;transform:translateY(100%)}to{opacity:1;transform:translateY(0)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--violet),var(--cyan),var(--amber));z-index:9999;transition:width .1s linear}
+.promo-bar{background:linear-gradient(90deg,var(--violet-d),var(--indigo),var(--cyan-d));color:#fff;text-align:center;padding:.65rem 1rem;font-size:.82rem;font-weight:600;position:relative;z-index:1100;display:flex;justify-content:center;align-items:center;gap:.8rem;flex-wrap:wrap}
+.promo-bar .btn{background:rgba(255,255,255,.2);color:#fff;padding:.35rem .9rem;border-radius:100px;font-size:.78rem;font-weight:700;border:1px solid rgba(255,255,255,.3)}
+.header{position:sticky;top:0;z-index:1000;background:rgba(8,8,15,.75);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--border)}
+[data-theme="light"] .header{background:rgba(251,252,255,.85)}
+.header-inner{max-width:1400px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.logo{display:flex;align-items:center;gap:.7rem;font-family:var(--font-d);font-size:1.4rem;font-weight:700;letter-spacing:-.02em}
+.logo-mark{width:44px;height:44px;border-radius:14px;position:relative;background:linear-gradient(135deg,var(--violet-d),var(--indigo));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(124,58,237,.4);overflow:hidden}
+.logo-mark::before{content:'';position:absolute;inset:-50%;background:conic-gradient(from 0deg,transparent,var(--cyan),transparent 30%);animation:spin 8s linear infinite;opacity:.7}
+.logo-mark svg{position:relative;z-index:2;width:24px;height:24px;color:#fff}
+.logo-text span{color:var(--violet)}
+.nav{display:flex;gap:.3rem;align-items:center}
+.nav a{color:var(--text-mut);font-weight:500;font-size:.9rem;padding:.65rem 1.1rem;border-radius:12px;transition:var(--tr);position:relative;cursor:pointer}
+.nav a:hover,.nav a.active{color:var(--text);background:var(--glass)}
+.nav a.active::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:20px;height:2px;background:linear-gradient(90deg,var(--violet),var(--cyan));border-radius:2px}
+.header-actions{display:flex;gap:.5rem;align-items:center}
+.icon-btn{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--glass);border:1px solid var(--border);color:var(--text-mut);transition:var(--tr)}
+.icon-btn:hover{color:var(--text);background:var(--card);transform:translateY(-2px)}
+.icon-btn svg{width:18px;height:18px}
+.menu-toggle{display:none;width:42px;height:42px;border-radius:12px;background:var(--glass);border:1px solid var(--border);color:var(--text);align-items:center;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.8rem 1.6rem;border-radius:12px;font-weight:600;font-size:.9rem;transition:var(--tr);border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--violet-d),var(--indigo));color:#fff;box-shadow:0 8px 24px rgba(124,58,237,.35)}
+.btn-primary:hover{transform:translateY(-3px)}
+.btn-ghost{background:var(--glass);color:var(--text);border-color:var(--border)}
+.btn-ghost:hover{background:var(--card);border-color:var(--border-s)}
+.btn-premium{background:linear-gradient(135deg,var(--amber),var(--orange));color:#1a1a1a;box-shadow:0 8px 24px rgba(251,191,36,.4);font-weight:700}
+.btn-premium:hover{transform:translateY(-3px)}
+.btn-lg{padding:1rem 2rem;font-size:.98rem;border-radius:14px}
+.btn-block{width:100%}
+
+/* HERO */
+.faq-hero{position:relative;padding:5rem 2rem 3rem;text-align:center;overflow:hidden}
+.faq-hero-bg{position:absolute;inset:0;z-index:0}
+.faq-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.2}
+.faq-hero-bg::after{content:'';position:absolute;inset:0;background:var(--overlay)}
+.faq-hero-orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;animation:float 14s ease-in-out infinite;pointer-events:none;z-index:1}
+.faq-hero-orb-1{width:350px;height:350px;background:var(--violet-d);top:-80px;right:15%}
+.faq-hero-orb-2{width:280px;height:280px;background:var(--cyan-d);bottom:-60px;left:10%;animation-delay:-5s}
+.faq-hero-content{position:relative;z-index:3;max-width:760px;margin:0 auto}
+.breadcrumb{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--text-mut);margin-bottom:1.2rem;font-weight:500}
+.breadcrumb a:hover{color:var(--violet)}
+.breadcrumb svg{width:14px;height:14px;opacity:.5}
+.faq-hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));border:1px solid rgba(139,92,246,.35);padding:.5rem 1.1rem;border-radius:100px;font-size:.78rem;font-weight:600;color:var(--violet);margin-bottom:1.4rem}
+.faq-hero-badge .dot{width:8px;height:8px;background:var(--emerald);border-radius:50%;animation:pulse 2s infinite}
+.faq-hero h1{font-family:var(--font-d);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:1rem}
+.gradient-text{background:linear-gradient(120deg,var(--violet) 0%,var(--cyan) 50%,var(--amber) 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.faq-hero p{font-size:clamp(1rem,1.6vw,1.1rem);color:var(--text-mut);max-width:600px;margin:0 auto 1.5rem}
+
+/* SEARCH */
+.faq-search{max-width:620px;margin:0 auto;position:relative}
+.faq-search svg{position:absolute;left:18px;top:50%;transform:translateY(-50%);width:20px;height:20px;color:var(--text-dim);pointer-events:none}
+.faq-search input{width:100%;padding:1rem 1.2rem 1rem 3rem;background:var(--card);border:1px solid var(--border-s);border-radius:16px;color:var(--text);font-size:1rem;outline:none;transition:var(--tr);box-shadow:var(--shadow-lg);backdrop-filter:blur(20px)}
+.faq-search input:focus{border-color:var(--violet-d);box-shadow:var(--shadow-lg),0 0 0 4px rgba(124,58,237,.15)}
+
+/* CATEGORIES */
+.faq-section{max-width:1000px;margin:0 auto;padding:3rem 2rem;position:relative;z-index:1}
+.cats-chips{display:flex;gap:.5rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem}
+.cat-chip{padding:.6rem 1.2rem;background:var(--glass);border:1px solid var(--border);border-radius:100px;font-size:.85rem;font-weight:600;color:var(--text-mut);transition:var(--tr);cursor:pointer;display:inline-flex;align-items:center;gap:.4rem}
+.cat-chip:hover{border-color:var(--violet-d);color:var(--text);transform:translateY(-2px)}
+.cat-chip.active{background:linear-gradient(135deg,var(--violet-d),var(--indigo));color:#fff;border-color:transparent;box-shadow:0 4px 16px rgba(124,58,237,.4)}
+
+/* FAQ ITEMS */
+.faq-list{max-width:820px;margin:0 auto}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:.8rem;overflow:hidden;transition:var(--tr);backdrop-filter:blur(12px)}
+.faq-item.open{border-color:var(--violet-d);box-shadow:var(--shadow-lg)}
+.faq-q{width:100%;padding:1.3rem 1.5rem;display:flex;justify-content:space-between;align-items:center;text-align:left;font-weight:600;font-size:.95rem;transition:var(--tr);gap:1rem;font-family:inherit;color:var(--text)}
+.faq-q:hover{background:var(--glass)}
+.faq-q .chev{width:20px;height:20px;transition:transform .3s;color:var(--violet);flex-shrink:0}
+.faq-item.open .chev{transform:rotate(180deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;padding:0 1.5rem;color:var(--text-mut);font-size:.92rem;line-height:1.75}
+.faq-item.open .faq-a{max-height:600px;padding:0 1.5rem 1.3rem}
+.faq-tag{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:.2rem .6rem;border-radius:6px;background:rgba(139,92,246,.15);color:var(--violet);margin-right:.6rem}
+.faq-a ul{list-style:none;padding:0;margin-top:.8rem}
+.faq-a ul li{padding:.35rem 0 .35rem 1.5rem;position:relative;font-size:.9rem}
+.faq-a ul li::before{content:'✓';position:absolute;left:0;color:var(--emerald);font-weight:700}
+.faq-a a{color:var(--violet);font-weight:600;text-decoration:underline}
+.faq-a a:hover{color:var(--violet-d)}
+
+/* GUIDE */
+.guide-section{max-width:1000px;margin:0 auto;padding:3rem 2rem}
+.guide-card{background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(6,182,212,.08));border:1px solid rgba(124,58,237,.35);border-radius:var(--radius-xl);padding:3rem 2rem;text-align:center;position:relative;overflow:hidden}
+.guide-card h2{font-family:var(--font-d);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;margin-bottom:1rem;letter-spacing:-.02em}
+.guide-card p{color:var(--text-mut);font-size:1rem;max-width:520px;margin:0 auto 2rem}
+.guide-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1rem;max-width:900px;margin:2rem auto;text-align:left}
+.guide-step{padding:1.3rem;background:var(--card);border:1px solid var(--border);border-radius:14px;transition:var(--tr)}
+.guide-step:hover{border-color:var(--violet-d);transform:translateY(-4px)}
+.guide-step .num{font-family:var(--font-d);font-size:1.8rem;font-weight:700;color:var(--violet);margin-bottom:.5rem;line-height:1}
+.guide-step h4{font-size:.95rem;font-weight:600;margin-bottom:.4rem}
+.guide-step p{font-size:.82rem;color:var(--text-mut);margin:0}
+
+/* CONTACT CTA */
+.help-cta{max-width:820px;margin:0 auto;padding:2rem}
+.help-cta-card{text-align:center;padding:2.5rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius-xl);backdrop-filter:blur(12px)}
+.help-cta-card .emoji{font-size:3rem;margin-bottom:1rem;display:block}
+.help-cta-card h3{font-family:var(--font-d);font-size:1.4rem;font-weight:700;margin-bottom:.5rem}
+.help-cta-card p{color:var(--text-mut);margin-bottom:1.5rem}
+.help-cta-btns{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
+
+/* PREMIUM CTA */
+.premium-section{max-width:820px;margin:0 auto;padding:2rem}
+.premium-card{padding:3rem 2rem;background:linear-gradient(135deg,rgba(251,191,36,.15),rgba(245,158,11,.08));border:1px solid rgba(251,191,36,.4);border-radius:var(--radius-xl);text-align:center}
+.premium-card .emoji{font-size:3rem;margin-bottom:1rem;display:block}
+.premium-card h2{font-family:var(--font-d);font-size:1.8rem;font-weight:700;margin-bottom:.8rem}
+.premium-card p{color:var(--text-mut);margin-bottom:1.5rem;max-width:520px;margin-left:auto;margin-right:auto}
+.premium-card .pc-features{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-bottom:2rem}
+.premium-card .pc-feature{display:inline-flex;align-items:center;gap:.4rem;font-size:.85rem;color:var(--text-mut);font-weight:600}
+.premium-card .pc-feature svg{width:18px;height:18px;color:var(--emerald)}
+
+/* FOOTER */
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:4.5rem 2rem 2rem;position:relative;z-index:1;margin-top:5rem}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--violet),transparent)}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:.88rem;color:var(--text-mut);line-height:1.75;margin:1rem 0 1.5rem}
+.footer-social{display:flex;gap:.5rem}
+.social-btn{width:38px;height:38px;border-radius:11px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-mut);transition:var(--tr)}
+.social-btn:hover{color:var(--violet);border-color:var(--violet-d);transform:translateY(-3px)}
+.social-btn svg{width:16px;height:16px}
+.footer-col h4{font-family:var(--font-d);font-size:.92rem;font-weight:600;margin-bottom:1.3rem}
+.footer-col a{font-size:.86rem;color:var(--text-mut);line-height:2.1;display:block;transition:var(--tr);cursor:pointer}
+.footer-col a:hover{color:var(--violet);transform:translateX(4px)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.82rem;color:var(--text-dim);flex-wrap:wrap}
+
+/* TOAST */
+.toast-container{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:.6rem;max-width:400px;width:calc(100% - 2rem);align-items:center}
+.toast{background:var(--card-solid);border:1px solid var(--border-s);border-radius:14px;padding:.9rem 1.2rem;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:.7rem;font-size:.88rem;font-weight:500;animation:slideUpIn .4s;border-left:3px solid var(--violet-d)}
+.toast.success{border-left-color:var(--emerald)}
+.toast.info{border-left-color:var(--cyan-d)}
+.toast.premium{border-left-color:var(--amber)}
+
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:2000;display:none;align-items:flex-start;justify-content:center;padding:1.5rem;background:rgba(0,0,0,.8);backdrop-filter:blur(10px);overflow-y:auto;animation:fadeIn .3s}
+.modal.open{display:flex}
+.modal-card{background:var(--bg-elev);border:1px solid var(--border-s);border-radius:var(--radius-xl);max-width:900px;width:100%;margin:auto;position:relative;box-shadow:var(--shadow-lg);animation:fadeUp .5s}
+.modal-close{position:absolute;top:1.2rem;right:1.2rem;z-index:10;width:42px;height:42px;border-radius:12px;background:rgba(0,0,0,.55);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer}
+.modal-close:hover{background:rgba(244,63,94,.9)}
+.modal-body{padding:2rem 2.5rem 2.5rem}
+
+@media(max-width:900px){.nav{position:fixed;top:78px;left:1rem;right:1rem;flex-direction:column;padding:1rem;gap:.3rem;background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius);transform:translateY(-12px);opacity:0;pointer-events:none;transition:var(--tr);z-index:1200}.nav.open{transform:translateY(0);opacity:1;pointer-events:auto}.nav a{width:100%;padding:.9rem 1rem}.menu-toggle{display:flex}.footer-top{grid-template-columns:1.5fr 1fr 1fr}.guide-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.header-inner{padding:.9rem 1.2rem}.faq-section,.guide-section{padding:2rem 1.2rem}.faq-q{padding:1.1rem 1.2rem;font-size:.88rem}.help-cta,.premium-section{padding:1.5rem 1.2rem}.guide-steps{grid-template-columns:1fr}.footer-top{grid-template-columns:1fr}.promo-bar{font-size:.75rem}}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="promo-bar">
+  <span>⭐ <strong>Guía Premium 2026</strong> — PDF con análisis de las 15 carreras y tendencias 2030</span>
+  <button class="btn" onclick="showToast('Descarga disponible en Premium','premium')">Descargar</button>
+  <button class="close-promo" onclick="this.parentElement.style.display='none'">✕</button>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      <div class="logo-text">Directorio<span>PY</span></div>
+    </a>
+    <nav class="nav" id="mainNav">
+      <a href="index.html">Inicio</a>
+      <a href="carreras.html">Carreras</a>
+      <a href="test.html">Test vocacional</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="toggleTheme()"><svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button>
+      <button class="btn btn-premium" onclick="showToast('Próximamente: checkout completo','info')">⭐ Premium</button>
+      <button class="menu-toggle" onclick="toggleMenu(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="faq-hero">
+  <div class="faq-hero-bg"><img src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=1920&q=80" alt="FAQ"></div>
+  <div class="faq-hero-orb faq-hero-orb-1"></div>
+  <div class="faq-hero-orb faq-hero-orb-2"></div>
+  <div class="faq-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg><span>FAQ</span></div>
+    <div class="faq-hero-badge"><span class="dot"></span><span>32 preguntas · Actualizado 2026</span></div>
+    <h1>Preguntas <span class="gradient-text">Frecuentes</span></h1>
+    <p>Todo lo que necesitas saber sobre carreras, salarios, universidades, becas y el sistema educativo paraguayo.</p>
+    <div class="faq-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+      <input type="text" id="faqSearch" placeholder="Buscar pregunta..." oninput="filterFaqs()">
+    </div>
+  </div>
+</section>
+
+<section class="faq-section">
+  <div class="cats-chips" id="catsChips">
+    <button class="cat-chip active" data-cat="todas" onclick="setCat(this,'todas')">🌟 Todas</button>
+    <button class="cat-chip" data-cat="carreras" onclick="setCat(this,'carreras')">📚 Carreras</button>
+    <button class="cat-chip" data-cat="salarios" onclick="setCat(this,'salarios')">💰 Salarios</button>
+    <button class="cat-chip" data-cat="universidades" onclick="setCat(this,'universidades')">🏫 Universidades</button>
+    <button class="cat-chip" data-cat="becas" onclick="setCat(this,'becas')">🎓 Becas</button>
+    <button class="cat-chip" data-cat="sitio" onclick="setCat(this,'sitio')">🌐 Sobre el sitio</button>
+  </div>
+  <div class="faq-list" id="faqList"></div>
+</section>
+
+<section class="guide-section">
+  <div class="guide-card reveal">
+    <h2>🎓 Guía paso a paso para elegir tu carrera</h2>
+    <p>Sigue estos 5 pasos probados para tomar la mejor decisión profesional.</p>
+    <div class="guide-steps">
+      <div class="guide-step"><div class="num">01</div><h4>Conócete</h4><p>Identifica tus intereses, habilidades y valores personales.</p></div>
+      <div class="guide-step"><div class="num">02</div><h4>Investiga</h4><p>Explora las carreras del directorio: salarios, desafíos y universidades.</p></div>
+      <div class="guide-step"><div class="num">03</div><h4>Haz el test</h4><p>Usa nuestro test vocacional para validar tu intuición.</p></div>
+      <div class="guide-step"><div class="num">04</div><h4>Compara</h4><p>Analiza 2-3 opciones en profundidad: costos, duración y proyección.</p></div>
+      <div class="guide-step"><div class="num">05</div><h4>Decide</h4><p>Confía en tu análisis y comprométete con tu elección.</p></div>
+    </div>
+    <a href="test.html" class="btn btn-primary btn-lg">🎯 Hacer el test vocacional</a>
+  </div>
+</section>
+
+<section class="premium-section">
+  <div class="premium-card reveal">
+    <span class="emoji">⭐</span>
+    <h2>Desbloquea la Guía Premium 2026</h2>
+    <p>PDF completo con análisis de las 15 carreras, tendencias laborales 2026-2030, comparativas de universidades y proyecciones salariales.</p>
+    <div class="pc-features">
+      <span class="pc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>80+ páginas PDF</span>
+      <span class="pc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Datos 2026</span>
+      <span class="pc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Actualizado cada año</span>
+    </div>
+    <button class="btn btn-premium btn-lg" onclick="showToast('Redirigiendo a Premium...','premium')">⭐ Desbloquear por Gs. 39.000/mes</button>
+  </div>
+</section>
+
+<section class="help-cta">
+  <div class="help-cta-card reveal">
+    <span class="emoji">💬</span>
+    <h3>¿No encontraste tu respuesta?</h3>
+    <p>Nuestro equipo está disponible para ayudarte con tu decisión vocacional.</p>
+    <div class="help-cta-btns">
+      <a href="contacto.html" class="btn btn-primary">✉️ Contactar al equipo</a>
+      <a href="carreras.html" class="btn btn-ghost">📚 Ver carreras</a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <div class="logo-text">Directorio<span>PY</span></div>
+        </a>
+        <p>La guía definitiva para elegir tu carrera profesional en Paraguay.</p>
+        <div class="footer-social">
+          <a class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Explorar</h4><a href="index.html">Inicio</a><a href="carreras.html">Carreras</a><a href="test.html">Test</a><a href="faq.html">FAQ</a></div>
+      <div class="footer-col"><h4>Carreras</h4><a href="carreras.html?area=ingenieria">Ingenierías</a><a href="carreras.html?area=tecnologia">Tecnología</a><a href="carreras.html?area=salud">Salud</a><a href="carreras.html?area=negocios">Negocios</a></div>
+      <div class="footer-col"><h4>Recursos</h4><a href="test.html">Test vocacional</a><a href="carreras.html">Comparador</a><a href="faq.html">Guía</a></div>
+      <div class="footer-col"><h4>Contacto</h4><a href="mailto:hola@directoriopy.com">hola@directoriopy.com</a><a href="tel:+595210000000">+595 21 000 000</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 <strong>DirectorioPY</strong>. Todos los derechos reservados.</div>
+      <div><a href="#">Privacidad</a> · <a href="#">Términos</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+(function(){const t=localStorage.getItem('dp_theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
+function toggleTheme(){const c=document.documentElement.getAttribute('data-theme');const n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('dp_theme',n);updateThemeIcon()}
+function updateThemeIcon(){const i=document.getElementById('themeIcon');if(!i)return;const d=document.documentElement.getAttribute('data-theme')==='dark';i.innerHTML=d?'<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>':'<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>'}
+function toggleMenu(e){if(e)e.stopPropagation();document.getElementById('mainNav').classList.toggle('open')}
+document.addEventListener('click',e=>{const n=document.getElementById('mainNav');if(n&&n.classList.contains('open')&&!n.contains(e.target)&&!e.target.closest('.menu-toggle'))n.classList.remove('open')});
+function showToast(msg,type='success'){const c=document.getElementById('toastContainer');const icons={success:'✓',error:'✕',info:'ℹ',premium:'⭐'};const t=document.createElement('div');t.className=`toast ${type}`;t.innerHTML=`<span style="font-size:1.1rem">${icons[type]||'ℹ'}</span><span>${msg}</span>`;c.appendChild(t);setTimeout(()=>{t.style.opacity='0';setTimeout(()=>t.remove(),300)},3000)}
+
+/* FAQ DATA */
+const FAQS=[
+{cat:'carreras',q:'¿Cómo elijo la carrera correcta para mí?',a:'Considera 3 factores clave: <strong>tus intereses</strong> (qué te gusta hacer), <strong>tus habilidades</strong> (qué se te da bien) y <strong>el mercado laboral</strong> (dónde hay oportunidades). Te recomendamos hacer nuestro <a href="test.html">test vocacional</a> y luego profundizar en las 2-3 carreras que más te atraigan.'},
+{cat:'carreras',q:'¿Cuál es la carrera con mayor empleabilidad en Paraguay?',a:'Las carreras con mayor empleabilidad son:<ul><li><strong>Ingeniería en Electricidad</strong> — 97%</li><li><strong>Ingeniería en Electrónica</strong> — 97%</li><li><strong>Medicina</strong> — 95%</li><li><strong>Ciencias de Datos / IA</strong> — 92%</li><li><strong>Ingeniería Civil</strong> — 90%</li></ul>Estas cifras reflejan la alta demanda insatisfecha de profesionales en estos sectores.'},
+{cat:'carreras',q:'¿Vale la pena estudiar carreras tecnológicas?',a:'Absolutamente. Las carreras tecnológicas como <strong>Ciencias de Datos, IA e Ingeniería Informática</strong> tienen alta demanda global y permiten trabajo remoto con salarios en dólares. Muchos egresados acceden a puestos internacionales sin salir de Paraguay.'},
+{cat:'carreras',q:'¿Qué carrera tiene el futuro más prometedor?',a:'Las carreras con mayor proyección a 2030 son:<ul><li><strong>Ciencias de Datos / IA</strong> — crecimiento +65% anual</li><li><strong>Ingeniería Ambiental</strong> — demanda creciente por regulaciones</li><li><strong>Ciberseguridad</strong> (especialización)</li><li><strong>Enfermería</strong> — déficit global de profesionales</li><li><strong>Logística</strong> — expansión del e-commerce</li></ul>'},
+{cat:'carreras',q:'¿Cuántas carreras debería considerar antes de decidir?',a:'Te recomendamos explorar entre <strong>5 y 8 carreras</strong> en una primera etapa, luego reducir a 3 finalistas y usar nuestro <strong>comparador</strong> para analizarlas lado a lado en profundidad.'},
+{cat:'salarios',q:'¿Cómo se calculan los rangos salariales mostrados?',a:'Los datos provienen de encuestas del mercado laboral paraguayo 2026, incluyendo fuentes del BCP, MTESS y estudios de consultoras internacionales con presencia en el país. Los rangos reflejan el salario inicial (sin experiencia) y el salario tope (con 5+ años de experiencia y especialización).'},
+{cat:'salarios',q:'¿Qué carrera tiene el salario más alto?',a:'En términos absolutos, <strong>Ingeniería Ambiental</strong> especializada en tratamiento de efluentes puede llegar a <strong>Gs. 40.000.000</strong> mensuales. Le siguen:<ul><li>Ingeniería en Electrónica — Gs. 22M</li><li>Ingeniería en Electricidad — Gs. 20M</li><li>Medicina — Gs. 18M</li><li>Ingeniería Civil — Gs. 17.6M</li></ul>'},
+{cat:'salarios',q:'¿Cuál es el salario mínimo en Paraguay?',a:'El salario mínimo vital y móvil en Paraguay es de <strong>Gs. 2.680.373</strong> (2026). El promedio del mercado formal ronda los <strong>Gs. 3.500.000</strong>. Las carreras listadas en nuestro directorio superan ampliamente estos valores.'},
+{cat:'salarios',q:'¿Cómo puedo aumentar mi salario después de graduarme?',a:'Las claves para aumentar tu salario son:<ul><li><strong>Dominio del inglés</strong> — puede duplicar tu salario</li><li><strong>Especialización</strong> (posgrado, maestría, certificaciones)</li><li><strong>Experiencia internacional</strong> o trabajo remoto</li><li><strong>Habilidades blandas</strong> — liderazgo, comunicación</li><li><strong>Networking</strong> activo en el sector</li></ul>'},
+{cat:'universidades',q:'¿Cuáles son las mejores universidades de Paraguay?',a:'Las principales son la <strong>UNA (Universidad Nacional de Asunción)</strong>, la <strong>Universidad Católica</strong>, la <strong>UNI</strong>, la <strong>Universidad Americana</strong> y la <strong>UTIC</strong>. Cada carrera tiene sus instituciones destacadas; revisa el detalle de cada una en nuestro directorio.'},
+{cat:'universidades',q:'¿Cuánto cuesta estudiar una carrera universitaria?',a:'En universidades públicas como la UNA, los costos son mínimos (matrícula y aranceles bajos, alrededor de Gs. 500.000 anuales). En universidades privadas, el rango varía entre <strong>Gs. 1.500.000 y Gs. 4.500.000 mensuales</strong> dependiendo de la carrera y la institución. Medicina y Arquitectura suelen estar en el rango más alto.'},
+{cat:'universidades',q:'¿Puedo trabajar mientras estudio?',a:'Sí, es muy común en Paraguay. Muchas universidades ofrecen horarios nocturnos o turnos flexibles. Las carreras como Administración, Contabilidad, Marketing y Logística son las más compatibles con trabajo simultáneo.'},
+{cat:'universidades',q:'¿Es mejor una universidad pública o privada?',a:'Depende de tus prioridades:<ul><li><strong>Pública:</strong> menor costo, mayor prestigio en algunas carreras (UNA)</li><li><strong>Privada:</strong> horarios más flexibles, infraestructura moderna, grupos más pequeños</li><li><strong>Recomendación:</strong> Investiga el ranking de la carrera específica más que la universidad en general</li></ul>'},
+{cat:'becas',q:'¿Qué becas están disponibles en Paraguay?',a:'Las principales becas son:<ul><li><strong>BECAL</strong> — Maestrías y doctorados en el exterior</li><li><strong>Itaipú Binacional</strong> — Grado y posgrado</li><li><strong>UNA Bienestar</strong> — Socioeconómicas y excelencia</li><li><strong>Fulbright</strong> — Intercambio con USA</li><li><strong>Beca Bicentenario</strong> — Carreras estratégicas</li><li><strong>Fundación Paraguaya</strong> — Jóvenes emprendedores</li></ul>'},
+{cat:'becas',q:'¿Cómo puedo aplicar a una beca?',a:'El proceso general es:<ul><li>1. Revisar los requisitos de elegibilidad</li><li>2. Preparar documentación (títulos, certificados, cartas de recomendación)</li><li>3. Escribir una carta de motivación sólida</li><li>4. Rendir exámenes de admisión si aplica</li><li>5. Cumplir con las fechas de convocatoria</li></ul>En nuestro <a href="carreras.html">directorio de carreras</a> mostramos las becas disponibles por área.'},
+{cat:'sitio',q:'¿Los datos se actualizan periódicamente?',a:'Sí. Cada año revisamos las estadísticas de empleabilidad y salarios para reflejar los cambios del mercado paraguayo, especialmente en sectores como tecnología y salud donde los salarios evolucionan rápidamente.'},
+{cat:'sitio',q:'¿El sitio es gratuito?',a:'Sí, <strong>DirectorioPY es 100% gratuito</strong>. No requerimos registro para acceder a la información de carreras, salarios o el test vocacional. También ofrecemos un plan <strong>Premium</strong> (Gs. 39.000/mes) con funciones avanzadas como comparador ilimitado, simulador salarial y reportes PDF.'},
+{cat:'sitio',q:'¿Cómo contacto al equipo?',a:'Puedes escribirnos a <strong>hola@directoriopy.com</strong>, llamarnos al <strong>+595 21 000 000</strong> o usar el formulario en nuestra página de <a href="contacto.html">Contacto</a>. Respondemos en menos de 48 horas hábiles.'},
+{cat:'sitio',q:'¿Cómo puedo cancelar mi suscripción Premium?',a:'Puedes cancelar en cualquier momento desde tu cuenta o escribiéndonos a hola@directoriopy.com. No hay penalizaciones ni cargos ocultos. Mantuviás acceso hasta el final del período pagado.'},
+{cat:'sitio',q:'¿Qué métodos de pago aceptan?',a:'Aceptamos tarjetas de crédito y débito Visa, Mastercard y American Express. Próximamente habilitaremos pagos con Tigo Money, Personal Pay y transferencias bancarias.'}
+];
+
+let currentCat='todas';
+let searchTerm='';
+
+function renderFaqs(){
+  const filtered=FAQS.filter(f=>{
+    const matchCat=currentCat==='todas'||f.cat===currentCat;
+    const matchSearch=!searchTerm||f.q.toLowerCase().includes(searchTerm)||f.a.toLowerCase().includes(searchTerm);
+    return matchCat&&matchSearch;
+  });
+  const labels={carreras:'Carreras',salarios:'Salarios',universidades:'Universidades',becas:'Becas',sitio:'Sitio'};
+  const list=document.getElementById('faqList');
+  if(!filtered.length){
+    list.innerHTML=`<div style="text-align:center;padding:4rem 2rem;color:var(--text-mut)"><div style="font-size:4rem;opacity:.3;margin-bottom:1rem">🔍</div><h3 style="font-family:var(--font-d);font-size:1.3rem;color:var(--text);margin-bottom:.5rem">Sin resultados</h3><p>Prueba con otros términos de búsqueda.</p></div>`;
+    return;
+  }
+  list.innerHTML=filtered.map((f,i)=>`
+    <div class="faq-item">
+      <button class="faq-q" onclick="toggleFaq(this)">
+        <span><span class="faq-tag">${labels[f.cat]}</span>${f.q}</span>
+        <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="faq-a"><p>${f.a}</p></div>
+    </div>`).join('');
+}
+
+function toggleFaq(btn){
+  const item=btn.parentElement;
+  const wasOpen=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!wasOpen)item.classList.add('open');
+}
+function setCat(el,cat){
+  document.querySelectorAll('.cat-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  currentCat=cat;
+  renderFaqs();
+}
+function filterFaqs(){
+  searchTerm=document.getElementById('faqSearch').value.toLowerCase().trim();
+  renderFaqs();
+}
+
+/* SCROLL */
+let ticking=false;window.addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{const s=window.scrollY;const h=document.documentElement.scrollHeight-window.innerHeight;const pct=h>0?(s/h)*100:0;const p=document.getElementById('scrollProgress');if(p)p.style.width=pct+'%';ticking=false})},{passive:true});
+
+/* REVEAL */
+const obs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}}),{threshold:.12});
+
+document.addEventListener('DOMContentLoaded',()=>{updateThemeIcon();document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));renderFaqs()});
+</script>
+</body>
+</html>

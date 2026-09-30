@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Test vocacional gratuito con IA. Descubre en 3 minutos las carreras que mejor encajan con tu personalidad.">
+<title>Test Vocacional — DirectorioPY | Descubre tu carrera ideal</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{--violet:#8b5cf6;--violet-d:#7c3aed;--indigo:#4f46e5;--cyan:#22d3ee;--cyan-d:#06b6d4;--amber:#fbbf24;--orange:#f59e0b;--emerald:#10b981;--rose:#f43f5e;--radius:16px;--radius-lg:24px;--radius-xl:32px;--tr:.3s cubic-bezier(.4,0,.2,1);--font:'Inter',sans-serif;--font-d:'Space Grotesk',sans-serif}
+[data-theme="dark"]{--bg:#08080f;--bg-2:#0d0d18;--bg-elev:#12121f;--card:rgba(22,22,38,.6);--card-solid:#16162a;--glass:rgba(255,255,255,.035);--glass-2:rgba(255,255,255,.06);--border:rgba(255,255,255,.07);--border-s:rgba(255,255,255,.14);--text:#f4f4f8;--text-mut:#9ca3ba;--text-dim:#6b7280;--shadow:0 4px 24px rgba(0,0,0,.4);--shadow-lg:0 24px 64px rgba(0,0,0,.6);--glow:0 0 60px rgba(139,92,246,.25);--grid:rgba(139,92,246,.05);--overlay:linear-gradient(180deg,rgba(8,8,15,.75),rgba(8,8,15,.98))}
+[data-theme="light"]{--bg:#fbfcff;--bg-2:#f5f6fa;--bg-elev:#fff;--card:rgba(255,255,255,.9);--card-solid:#fff;--glass:rgba(15,23,42,.03);--glass-2:rgba(15,23,42,.05);--border:rgba(15,23,42,.08);--border-s:rgba(15,23,42,.16);--text:#0b1120;--text-mut:#475569;--text-dim:#94a3b8;--shadow:0 4px 24px rgba(15,23,42,.07);--shadow-lg:0 24px 64px rgba(15,23,42,.12);--glow:0 0 60px rgba(139,92,246,.15);--grid:rgba(139,92,246,.07);--overlay:linear-gradient(180deg,rgba(251,252,255,.7),rgba(251,252,255,.98))}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;transition:background .4s,color .4s;position:relative;min-height:100vh}
+body::before{content:'';position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(var(--grid) 1px,transparent 1px),linear-gradient(90deg,var(--grid) 1px,transparent 1px);background-size:56px 56px;mask-image:radial-gradient(ellipse 80% 60% at 50% 0%,black,transparent 70%)}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;outline:none;background:none;color:inherit}
+input{font-family:inherit;font-size:inherit}
+img{max-width:100%;display:block}
+::selection{background:var(--violet-d);color:#fff}
+::-webkit-scrollbar{width:10px}
+::-webkit-scrollbar-thumb{background:var(--border-s);border-radius:6px}
+::-webkit-scrollbar-thumb:hover{background:var(--violet-d)}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.6}}
+@keyframes bounceIn{0%{transform:scale(.5);opacity:0}60%{transform:scale(1.05)}100%{transform:scale(1);opacity:1}}
+@keyframes slideUpIn{from{opacity:0;transform:translateY(100%)}to{opacity:1;transform:translateY(0)}}
+@keyframes ring{0%{box-shadow:0 0 0 0 rgba(139,92,246,.7)}70%{box-shadow:0 0 0 20px rgba(139,92,246,0)}100%{box-shadow:0 0 0 0 rgba(139,92,246,0)}}
+@keyframes progressFill{from{width:0}to{width:var(--w)}}
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s,transform .8s}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.scroll-progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--violet),var(--cyan),var(--amber));z-index:9999;transition:width .1s linear}
+.promo-bar{background:linear-gradient(90deg,var(--violet-d),var(--indigo),var(--cyan-d));color:#fff;text-align:center;padding:.65rem 1rem;font-size:.82rem;font-weight:600;position:relative;z-index:1100;display:flex;justify-content:center;align-items:center;gap:.8rem;flex-wrap:wrap}
+.promo-bar .btn{background:rgba(255,255,255,.2);color:#fff;padding:.35rem .9rem;border-radius:100px;font-size:.78rem;font-weight:700;border:1px solid rgba(255,255,255,.3)}
+.promo-bar .close-promo{position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:#fff;opacity:.7;padding:.3rem}
+.header{position:sticky;top:0;z-index:1000;background:rgba(8,8,15,.75);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--border)}
+[data-theme="light"] .header{background:rgba(251,252,255,.85)}
+.header-inner{max-width:1400px;margin:0 auto;padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center;gap:1rem}
+.logo{display:flex;align-items:center;gap:.7rem;font-family:var(--font-d);font-size:1.4rem;font-weight:700;letter-spacing:-.02em}
+.logo-mark{width:44px;height:44px;border-radius:14px;position:relative;background:linear-gradient(135deg,var(--violet-d),var(--indigo));display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(124,58,237,.4);overflow:hidden}
+.logo-mark::before{content:'';position:absolute;inset:-50%;background:conic-gradient(from 0deg,transparent,var(--cyan),transparent 30%);animation:spin 8s linear infinite;opacity:.7}
+.logo-mark svg{position:relative;z-index:2;width:24px;height:24px;color:#fff}
+.logo-text span{color:var(--violet)}
+.nav{display:flex;gap:.3rem;align-items:center}
+.nav a{color:var(--text-mut);font-weight:500;font-size:.9rem;padding:.65rem 1.1rem;border-radius:12px;transition:var(--tr);position:relative;cursor:pointer}
+.nav a:hover,.nav a.active{color:var(--text);background:var(--glass)}
+.nav a.active::after{content:'';position:absolute;bottom:3px;left:50%;transform:translateX(-50%);width:20px;height:2px;background:linear-gradient(90deg,var(--violet),var(--cyan));border-radius:2px}
+.header-actions{display:flex;gap:.5rem;align-items:center}
+.icon-btn{width:42px;height:42px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:var(--glass);border:1px solid var(--border);color:var(--text-mut);transition:var(--tr)}
+.icon-btn:hover{color:var(--text);background:var(--card);transform:translateY(-2px)}
+.icon-btn svg{width:18px;height:18px}
+.menu-toggle{display:none;width:42px;height:42px;border-radius:12px;background:var(--glass);border:1px solid var(--border);color:var(--text);align-items:center;justify-content:center}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;padding:.8rem 1.6rem;border-radius:12px;font-weight:600;font-size:.9rem;transition:var(--tr);white-space:nowrap;border:1px solid transparent}
+.btn-primary{background:linear-gradient(135deg,var(--violet-d),var(--indigo));color:#fff;box-shadow:0 8px 24px rgba(124,58,237,.35)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(124,58,237,.5)}
+.btn-ghost{background:var(--glass);color:var(--text);border-color:var(--border)}
+.btn-ghost:hover{background:var(--card);border-color:var(--border-s);transform:translateY(-2px)}
+.btn-premium{background:linear-gradient(135deg,var(--amber),var(--orange));color:#1a1a1a;box-shadow:0 8px 24px rgba(251,191,36,.4);font-weight:700}
+.btn-premium:hover{transform:translateY(-3px);box-shadow:0 14px 36px rgba(251,191,36,.6)}
+.btn-lg{padding:1rem 2rem;font-size:.98rem;border-radius:14px}
+.btn-block{width:100%}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+
+/* TEST HERO */
+.test-hero{position:relative;padding:4rem 2rem 3rem;text-align:center;overflow:hidden}
+.test-hero-bg{position:absolute;inset:0;z-index:0}
+.test-hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.2}
+.test-hero-bg::after{content:'';position:absolute;inset:0;background:var(--overlay)}
+.test-hero-orb{position:absolute;border-radius:50%;filter:blur(90px);opacity:.35;animation:float 14s ease-in-out infinite;pointer-events:none;z-index:1}
+.test-hero-orb-1{width:350px;height:350px;background:var(--violet-d);top:-80px;right:15%}
+.test-hero-orb-2{width:280px;height:280px;background:var(--cyan-d);bottom:-60px;left:10%;animation-delay:-5s}
+.test-hero-content{position:relative;z-index:3;max-width:760px;margin:0 auto}
+.breadcrumb{display:inline-flex;align-items:center;gap:.5rem;font-size:.8rem;color:var(--text-mut);margin-bottom:1.2rem;font-weight:500}
+.breadcrumb a{color:var(--text-mut)}
+.breadcrumb a:hover{color:var(--violet)}
+.breadcrumb svg{width:14px;height:14px;opacity:.5}
+.test-hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));border:1px solid rgba(139,92,246,.35);padding:.5rem 1.1rem;border-radius:100px;font-size:.78rem;font-weight:600;color:var(--violet);margin-bottom:1.4rem}
+.test-hero-badge .dot{width:8px;height:8px;background:var(--emerald);border-radius:50%;box-shadow:0 0 10px var(--emerald);animation:pulse 2s infinite}
+.test-hero h1{font-family:var(--font-d);font-size:clamp(2rem,5vw,3.2rem);font-weight:700;line-height:1.1;letter-spacing:-.03em;margin-bottom:1rem}
+.gradient-text{background:linear-gradient(120deg,var(--violet) 0%,var(--cyan) 50%,var(--amber) 100%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.test-hero p{font-size:clamp(1rem,1.6vw,1.1rem);color:var(--text-mut);max-width:600px;margin:0 auto}
+
+/* TEST CONTAINER */
+.test-section{max-width:820px;margin:0 auto;padding:2rem;position:relative;z-index:1}
+.test-card{background:var(--card);border:1px solid var(--border-s);border-radius:var(--radius-xl);padding:2.5rem;backdrop-filter:blur(20px);box-shadow:var(--shadow-lg);animation:fadeUp .5s}
+
+/* START CARD */
+.start-card{text-align:center;padding:3rem 2rem;background:var(--card);border:1px solid var(--border-s);border-radius:var(--radius-xl);backdrop-filter:blur(20px);box-shadow:var(--shadow-lg);max-width:680px;margin:0 auto}
+.start-emoji{font-size:5rem;margin-bottom:1.5rem;display:inline-block;animation:float 4s ease-in-out infinite}
+.start-card h2{font-family:var(--font-d);font-size:clamp(1.6rem,3.5vw,2rem);font-weight:700;margin-bottom:.8rem;letter-spacing:-.02em}
+.start-card>p{color:var(--text-mut);margin-bottom:2rem;font-size:1rem;max-width:520px;margin-left:auto;margin-right:auto}
+.start-features{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:2rem 0}
+.start-feature{padding:1.2rem 1rem;background:var(--glass);border:1px solid var(--border);border-radius:14px;text-align:center;transition:var(--tr)}
+.start-feature:hover{border-color:var(--violet-d);transform:translateY(-3px)}
+.start-feature .sf-icon{font-size:1.8rem;margin-bottom:.5rem;display:block}
+.start-feature .sf-lbl{font-size:.78rem;font-weight:600;color:var(--text-mut)}
+.start-stats{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin:2rem 0;padding:1.5rem;background:var(--glass);border-radius:16px}
+.start-stat{text-align:center}
+.start-stat strong{display:block;font-family:var(--font-d);font-size:1.6rem;font-weight:700;background:linear-gradient(135deg,var(--violet),var(--cyan));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.start-stat span{font-size:.72rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+
+/* PROGRESS */
+.test-progress-bar{height:6px;background:var(--glass-2);border-radius:3px;margin-bottom:2rem;overflow:hidden}
+.test-progress-bar .fill{height:100%;background:linear-gradient(90deg,var(--violet-d),var(--cyan-d));border-radius:3px;transition:width .5s cubic-bezier(.4,0,.2,1)}
+.test-step-indicator{display:flex;justify-content:space-between;font-size:.75rem;color:var(--text-dim);font-weight:600;margin-bottom:.8rem}
+.test-question{font-family:var(--font-d);font-size:clamp(1.15rem,2.5vw,1.5rem);font-weight:600;margin-bottom:1.8rem;line-height:1.3;letter-spacing:-.01em}
+.test-options{display:flex;flex-direction:column;gap:.8rem}
+.test-opt{padding:1.1rem 1.3rem;background:var(--glass);border:2px solid var(--border);border-radius:14px;text-align:left;transition:var(--tr);font-size:.95rem;font-weight:500;color:var(--text);cursor:pointer;display:flex;align-items:center;gap:.9rem;font-family:inherit}
+.test-opt:hover{border-color:var(--violet-d);transform:translateX(6px);background:var(--glass-2)}
+.test-opt.selected{border-color:var(--violet-d);background:linear-gradient(135deg,rgba(124,58,237,.15),rgba(6,182,212,.08))}
+.test-opt .letter{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--violet-d),var(--indigo));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem;flex-shrink:0;font-family:var(--font-d)}
+.test-nav{display:flex;justify-content:space-between;gap:1rem;margin-top:2rem}
+
+/* RESULT */
+.result-hero{text-align:center;margin-bottom:2rem}
+.result-emoji{font-size:4.5rem;margin-bottom:1rem;display:inline-block;animation:bounceIn .6s}
+.result-hero h2{font-family:var(--font-d);font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:700;margin-bottom:.5rem;background:linear-gradient(135deg,var(--violet),var(--cyan),var(--amber));background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:fadeIn .6s}
+.result-hero p{color:var(--text-mut);font-size:1rem;max-width:520px;margin:0 auto}
+.personality-badge{display:inline-flex;align-items:center;gap:.6rem;padding:.6rem 1.3rem;background:linear-gradient(135deg,rgba(139,92,246,.18),rgba(6,182,212,.12));border:1px solid rgba(139,92,246,.35);border-radius:100px;font-size:.85rem;font-weight:700;color:var(--violet);margin:1rem 0 2rem}
+.result-careers{display:flex;flex-direction:column;gap:1rem;margin-bottom:2rem}
+.result-career{display:flex;align-items:center;gap:1rem;padding:1.3rem;background:var(--glass);border:1px solid var(--border);border-radius:16px;transition:var(--tr);cursor:pointer;text-decoration:none;color:inherit}
+.result-career:hover{border-color:var(--violet-d);transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.result-career .icon{font-size:2.4rem;flex-shrink:0}
+.result-career .info{flex:1;min-width:0}
+.result-career .info h4{font-family:var(--font-d);font-size:1rem;font-weight:700;margin-bottom:.25rem}
+.result-career .info .meta{font-size:.8rem;color:var(--text-mut)}
+.result-career .match{text-align:right;flex-shrink:0}
+.result-career .match .pct{font-family:var(--font-d);font-size:1.4rem;font-weight:700;background:linear-gradient(135deg,var(--emerald),var(--cyan-d));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;line-height:1}
+.result-career .match .lbl{font-size:.68rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:.05em;font-weight:700}
+.result-actions{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap}
+
+/* TRAITS */
+.traits-chart{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:1rem;margin:2rem 0}
+.trait{padding:1rem;background:var(--glass);border:1px solid var(--border);border-radius:12px;text-align:center}
+.trait .t-label{font-size:.72rem;color:var(--text-mut);font-weight:600;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.5rem}
+.trait .t-bar{height:6px;background:var(--glass-2);border-radius:3px;overflow:hidden;margin-bottom:.4rem}
+.trait .t-bar .fill{height:100%;background:linear-gradient(90deg,var(--violet-d),var(--cyan-d));border-radius:3px;transition:width 1s}
+.trait .t-value{font-family:var(--font-d);font-size:.9rem;font-weight:700;color:var(--violet)}
+
+/* PREMIUM CTA */
+.premium-cta{padding:2rem;background:linear-gradient(135deg,rgba(251,191,36,.15),rgba(245,158,11,.08));border:1px solid rgba(251,191,36,.4);border-radius:20px;text-align:center;margin-top:2rem}
+.premium-cta .pc-icon{font-size:2.5rem;margin-bottom:.8rem;display:block}
+.premium-cta h3{font-family:var(--font-d);font-size:1.3rem;font-weight:700;margin-bottom:.5rem}
+.premium-cta p{color:var(--text-mut);font-size:.9rem;margin-bottom:1.5rem;max-width:460px;margin-left:auto;margin-right:auto}
+.premium-cta .pc-features{display:flex;gap:.8rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.5rem}
+.premium-cta .pc-feature{display:inline-flex;align-items:center;gap:.4rem;font-size:.8rem;color:var(--text-mut);font-weight:600}
+.premium-cta .pc-feature svg{width:16px;height:16px;color:var(--emerald)}
+
+/* FAQ section */
+.test-faq{max-width:820px;margin:4rem auto 0;padding:0 2rem}
+.test-faq h3{font-family:var(--font-d);font-size:1.5rem;font-weight:700;text-align:center;margin-bottom:2rem;letter-spacing:-.02em}
+.faq-mini{background:var(--card);border:1px solid var(--border);border-radius:16px;margin-bottom:.8rem;overflow:hidden}
+.faq-mini.open{border-color:var(--violet-d)}
+.faq-mini-q{width:100%;padding:1.1rem 1.4rem;display:flex;justify-content:space-between;align-items:center;text-align:left;font-weight:600;font-size:.92rem;gap:1rem;font-family:inherit;color:var(--text)}
+.faq-mini-q:hover{background:var(--glass)}
+.faq-mini-q svg{width:18px;height:18px;color:var(--violet);transition:transform .3s;flex-shrink:0}
+.faq-mini.open .faq-mini-q svg{transform:rotate(180deg)}
+.faq-mini-a{max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;padding:0 1.4rem;color:var(--text-mut);font-size:.88rem;line-height:1.7}
+.faq-mini.open .faq-mini-a{max-height:400px;padding:0 1.4rem 1.2rem}
+
+/* PRICING MODAL (embebido) */
+.modal{position:fixed;inset:0;z-index:2000;display:none;align-items:flex-start;justify-content:center;padding:1.5rem;background:rgba(0,0,0,.8);backdrop-filter:blur(10px);overflow-y:auto;animation:fadeIn .3s}
+.modal.open{display:flex}
+.modal-card{background:var(--bg-elev);border:1px solid var(--border-s);border-radius:var(--radius-xl);max-width:1000px;width:100%;margin:auto;position:relative;overflow:hidden;box-shadow:var(--shadow-lg);animation:fadeUp .5s}
+.modal-close{position:absolute;top:1.2rem;right:1.2rem;z-index:10;width:42px;height:42px;border-radius:12px;background:rgba(0,0,0,.55);backdrop-filter:blur(12px);color:#fff;display:flex;align-items:center;justify-content:center;transition:var(--tr);border:1px solid rgba(255,255,255,.15);cursor:pointer}
+.modal-close:hover{background:rgba(244,63,94,.9);transform:rotate(90deg) scale(1.05)}
+.modal-body{padding:2rem 2.5rem 2.5rem}
+.checkout-progress{display:flex;align-items:center;justify-content:center;padding:0 1rem;margin-bottom:1.5rem}
+.cp-step{display:flex;flex-direction:column;align-items:center;gap:.4rem;flex-shrink:0;opacity:.4;transition:opacity .3s}
+.cp-step.active{opacity:1}
+.cp-step .cp-dot{width:36px;height:36px;border-radius:50%;background:var(--glass);border:2px solid var(--border-s);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-weight:700;font-size:.9rem;color:var(--text-mut)}
+.cp-step.active .cp-dot{background:linear-gradient(135deg,var(--violet-d),var(--indigo));color:#fff;border-color:transparent;box-shadow:0 4px 16px rgba(124,58,237,.4)}
+.cp-step span{font-size:.72rem;font-weight:600;color:var(--text-mut);white-space:nowrap}
+.cp-line{flex:1;height:2px;background:var(--border);margin:0 .5rem;position:relative;top:-10px;max-width:100px}
+.card-preview{position:relative;width:100%;max-width:380px;aspect-ratio:1.586;border-radius:18px;background:linear-gradient(135deg,#1a1a2e 0%,#2d1b4e 50%,#1e3a5f 100%);padding:1.5rem;display:flex;flex-direction:column;justify-content:space-between;box-shadow:0 12px 40px rgba(0,0,0,.5);overflow:hidden;margin:0 auto;color:#fff}
+.card-preview::before{content:'';position:absolute;top:-50%;right:-30%;width:200px;height:200px;background:radial-gradient(circle,rgba(139,92,246,.4),transparent 70%);border-radius:50%}
+.card-preview::after{content:'';position:absolute;bottom:-30%;left:-20%;width:180px;height:180px;background:radial-gradient(circle,rgba(6,182,212,.3),transparent 70%);border-radius:50%}
+.card-preview-chip{width:46px;height:34px;border-radius:6px;background:linear-gradient(135deg,#d4af37,#f7e98e,#d4af37);position:relative;z-index:2}
+.card-preview-chip::before{content:'';position:absolute;inset:6px;background:repeating-linear-gradient(90deg,transparent 0,transparent 4px,rgba(0,0,0,.15) 4px,rgba(0,0,0,.15) 5px)}
+.card-number-preview{font-family:'SF Mono',Monaco,monospace;font-size:1.35rem;letter-spacing:.15em;position:relative;z-index:2}
+.card-info-row{display:flex;justify-content:space-between;position:relative;z-index:2;gap:1rem}
+.card-info-lbl{font-size:.6rem;font-weight:600;letter-spacing:.1em;opacity:.6;margin-bottom:.2rem}
+.card-info-val{font-family:'SF Mono',Monaco,monospace;font-size:.9rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:180px}
+.form-field{margin-bottom:1rem}
+.form-field label{display:block;font-size:.78rem;font-weight:600;color:var(--text-mut);margin-bottom:.4rem}
+.form-field input{width:100%;padding:.85rem 1rem;background:var(--glass);border:1px solid var(--border);border-radius:12px;color:var(--text);font-size:.92rem;outline:none;transition:var(--tr)}
+.form-field input:focus{border-color:var(--violet-d);box-shadow:0 0 0 4px rgba(124,58,237,.15);background:var(--card-solid)}
+.success-anim{width:120px;height:120px;margin:0 auto 1.5rem;position:relative}
+.success-circle{width:120px;height:120px;border-radius:50%;background:linear-gradient(135deg,var(--emerald),var(--cyan-d));display:flex;align-items:center;justify-content:center;animation:bounceIn .6s;box-shadow:0 12px 40px rgba(16,185,129,.4)}
+.success-check{width:60px;height:60px;color:#fff}
+.receipt{background:var(--glass);border:1px dashed var(--border-s);border-radius:16px;padding:1.5rem;max-width:460px;margin:1.5rem auto 0}
+.receipt-row{display:flex;justify-content:space-between;padding:.5rem 0;font-size:.85rem;border-bottom:1px dashed var(--border)}
+.receipt-row:last-child{border-bottom:none}
+.receipt-row .k{color:var(--text-mut)}
+.receipt-row .v{font-weight:600;font-family:'SF Mono',monospace;font-size:.82rem}
+
+/* FOOTER */
+.footer{background:var(--bg-2);border-top:1px solid var(--border);padding:4.5rem 2rem 2rem;position:relative;z-index:1;margin-top:5rem}
+.footer::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--violet),transparent)}
+.footer-inner{max-width:1400px;margin:0 auto}
+.footer-top{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand p{font-size:.88rem;color:var(--text-mut);line-height:1.75;margin:1rem 0 1.5rem}
+.footer-social{display:flex;gap:.5rem}
+.social-btn{width:38px;height:38px;border-radius:11px;background:var(--glass);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;color:var(--text-mut);transition:var(--tr)}
+.social-btn:hover{color:var(--violet);border-color:var(--violet-d);transform:translateY(-3px)}
+.social-btn svg{width:16px;height:16px}
+.footer-col h4{font-family:var(--font-d);font-size:.92rem;font-weight:600;margin-bottom:1.3rem}
+.footer-col a{font-size:.86rem;color:var(--text-mut);line-height:2.1;display:block;transition:var(--tr);cursor:pointer}
+.footer-col a:hover{color:var(--violet);transform:translateX(4px)}
+.footer-bottom{border-top:1px solid var(--border);padding-top:1.6rem;display:flex;justify-content:space-between;align-items:center;gap:1rem;font-size:.82rem;color:var(--text-dim);flex-wrap:wrap}
+
+/* TOASTS */
+.toast-container{position:fixed;bottom:1.5rem;left:50%;transform:translateX(-50%);z-index:9999;display:flex;flex-direction:column;gap:.6rem;max-width:400px;width:calc(100% - 2rem);align-items:center}
+.toast{background:var(--card-solid);border:1px solid var(--border-s);border-radius:14px;padding:.9rem 1.2rem;box-shadow:var(--shadow-lg);display:flex;align-items:center;gap:.7rem;font-size:.88rem;font-weight:500;animation:slideUpIn .4s;border-left:3px solid var(--violet-d);backdrop-filter:blur(12px)}
+.toast.success{border-left-color:var(--emerald)}
+.toast.error{border-left-color:var(--rose)}
+.toast.premium{border-left-color:var(--amber)}
+
+@media(max-width:900px){.nav{position:fixed;top:78px;left:1rem;right:1rem;flex-direction:column;padding:1rem;gap:.3rem;background:var(--bg-elev);border:1px solid var(--border);border-radius:var(--radius);box-shadow:var(--shadow-lg);transform:translateY(-12px);opacity:0;pointer-events:none;transition:var(--tr);z-index:1200}.nav.open{transform:translateY(0);opacity:1;pointer-events:auto}.nav a{width:100%;padding:.9rem 1rem;text-align:left}.menu-toggle{display:flex}.footer-top{grid-template-columns:1.5fr 1fr 1fr}.start-features{grid-template-columns:1fr}}
+@media(max-width:600px){.header-inner{padding:.9rem 1.2rem}.test-section{padding:1.2rem}.test-card{padding:1.8rem 1.5rem}.start-card{padding:2rem 1.5rem}.footer-top{grid-template-columns:1fr}.modal-card{border-radius:0;min-height:100vh}.card-preview{max-width:100%}.test-nav{flex-direction:column}.test-nav .btn{width:100%}.start-stats{flex-direction:column;gap:1rem}}
+</style>
+</head>
+<body>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<div class="promo-bar">
+  <span>🎯 <strong>Test Premium con IA</strong> — Análisis profundo de personalidad + 10 carreras recomendadas</span>
+  <button class="btn" onclick="openPremium()">Activar Premium</button>
+  <button class="close-promo" onclick="this.parentElement.style.display='none'">✕</button>
+</div>
+
+<header class="header">
+  <div class="header-inner">
+    <a href="index.html" class="logo">
+      <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+      <div class="logo-text">Directorio<span>PY</span></div>
+    </a>
+    <nav class="nav" id="mainNav">
+      <a href="index.html">Inicio</a>
+      <a href="carreras.html">Carreras</a>
+      <a href="test.html" class="active">Test vocacional</a>
+      <a href="faq.html">FAQ</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" onclick="toggleTheme()" aria-label="Tema"><svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></svg></button>
+      <button class="btn btn-premium btn-sm" onclick="openPremium()">⭐ Premium</button>
+      <button class="menu-toggle" onclick="toggleMenu(event)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<section class="test-hero">
+  <div class="test-hero-bg"><img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=1920&q=80" alt="Test"></div>
+  <div class="test-hero-orb test-hero-orb-1"></div>
+  <div class="test-hero-orb test-hero-orb-2"></div>
+  <div class="test-hero-content">
+    <div class="breadcrumb"><a href="index.html">Inicio</a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg><span>Test vocacional</span></div>
+    <div class="test-hero-badge"><span class="dot"></span><span>Actualizado 2026 · Basado en RIASEC</span></div>
+    <h1>Descubre tu <span class="gradient-text">carrera ideal</span> en 3 minutos</h1>
+    <p>Test vocacional basado en el modelo RIASEC. Responde 12 preguntas y obtén tus 3 carreras más compatibles.</p>
+  </div>
+</section>
+
+<section class="test-section">
+  <div id="testContainer"></div>
+</section>
+
+<section class="test-faq">
+  <h3>❓ Preguntas frecuentes sobre el test</h3>
+  <div class="faq-mini">
+    <button class="faq-mini-q" onclick="toggleMiniFaq(this)">¿Cuánto dura el test?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="faq-mini-a">Solo 3-5 minutos. Son 12 preguntas de opción múltiple. Puedes pausar y volver cuando quieras.</div>
+  </div>
+  <div class="faq-mini">
+    <button class="faq-mini-q" onclick="toggleMiniFaq(this)">¿El test es realmente gratis?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="faq-mini-a">Sí, 100% gratuito. La versión Premium ($39.000/mes) añade análisis de personalidad completo, 10 carreras recomendadas y reporte PDF descargable.</div>
+  </div>
+  <div class="faq-mini">
+    <button class="faq-mini-q" onclick="toggleMiniFaq(this)">¿Qué modelo usa?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="faq-mini-a">Basado en el modelo RIASEC (Holland Codes) adaptado al mercado laboral paraguayo. Es el mismo modelo que usan los orientadores vocacionales profesionales.</div>
+  </div>
+  <div class="faq-mini">
+    <button class="faq-mini-q" onclick="toggleMiniFaq(this)">¿Puedo repetirlo?<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M6 9l6 6 6-6"/></svg></button>
+    <div class="faq-mini-a">Sí, ilimitadas veces. Tus resultados no se guardan hasta que creas una cuenta o te suscribas.</div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg></div>
+          <div class="logo-text">Directorio<span>PY</span></div>
+        </a>
+        <p>Descubre tu carrera ideal con nuestro test vocacional basado en IA y el modelo RIASEC.</p>
+        <div class="footer-social">
+          <a class="social-btn" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+          <a class="social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Explorar</h4><a href="index.html">Inicio</a><a href="carreras.html">Carreras</a><a href="test.html">Test</a><a href="faq.html">FAQ</a></div>
+      <div class="footer-col"><h4>Carreras</h4><a href="carreras.html?area=ingenieria">Ingenierías</a><a href="carreras.html?area=tecnologia">Tecnología</a><a href="carreras.html?area=salud">Salud</a><a href="carreras.html?area=negocios">Negocios</a></div>
+      <div class="footer-col"><h4>Premium</h4><a onclick="openPremium()">Planes</a><a onclick="openPremium()">Prueba gratis</a><a onclick="openPremium()">Orientadores</a></div>
+      <div class="footer-col"><h4>Contacto</h4><a href="mailto:hola@directoriopy.com">hola@directoriopy.com</a><a href="tel:+595210000000">+595 21 000 000</a></div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 <strong>DirectorioPY</strong>. Todos los derechos reservados.</div>
+      <div><a href="#">Privacidad</a> · <a href="#">Términos</a></div>
+    </div>
+  </div>
+</footer>
+
+<div class="modal" id="premiumModal" onclick="if(event.target===this)closePremium()">
+  <div class="modal-card" id="premiumModalCard"></div>
+</div>
+
+<div class="toast-container" id="toastContainer"></div>
+
+<script>
+/* THEME */
+(function(){const t=localStorage.getItem('dp_theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();
+function toggleTheme(){const c=document.documentElement.getAttribute('data-theme');const n=c==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',n);localStorage.setItem('dp_theme',n);updateThemeIcon()}
+function updateThemeIcon(){const i=document.getElementById('themeIcon');if(!i)return;const d=document.documentElement.getAttribute('data-theme')==='dark';i.innerHTML=d?'<circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>':'<path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/>'}
+function toggleMenu(e){if(e)e.stopPropagation();document.getElementById('mainNav').classList.toggle('open')}
+document.addEventListener('click',e=>{const n=document.getElementById('mainNav');if(n&&n.classList.contains('open')&&!n.contains(e.target)&&!e.target.closest('.menu-toggle'))n.classList.remove('open')});
+function toggleMiniFaq(btn){const item=btn.parentElement;const was=item.classList.contains('open');document.querySelectorAll('.faq-mini').forEach(i=>i.classList.remove('open'));if(!was)item.classList.add('open')}
+
+function showToast(msg,type='success'){const c=document.getElementById('toastContainer');const icons={success:'✓',error:'✕',info:'ℹ',premium:'⭐'};const t=document.createElement('div');t.className=`toast ${type}`;t.innerHTML=`<span style="font-size:1.1rem">${icons[type]||'ℹ'}</span><span>${msg}</span>`;c.appendChild(t);setTimeout(()=>{t.style.opacity='0';t.style.transform='translateY(20px)';setTimeout(()=>t.remove(),300)},3000)}
+
+/* SCROLL */
+let ticking=false;window.addEventListener('scroll',()=>{if(ticking)return;ticking=true;requestAnimationFrame(()=>{const s=window.scrollY;const h=document.documentElement.scrollHeight-window.innerHeight;const pct=h>0?(s/h)*100:0;const p=document.getElementById('scrollProgress');if(p)p.style.width=pct+'%';ticking=false})},{passive:true});
+
+/* CARRERAS - data mínima */
+const CARRERAS=[
+{slug:'ingenieria-electricidad',nombre:'Ingeniería en Electricidad',icono:'⚡',area:'ingenieria',empleabilidad:97,salarioMin:5000000,salarioMax:20000000},
+{slug:'ingenieria-electronica',nombre:'Ingeniería en Electrónica',icono:'🔌',area:'ingenieria',empleabilidad:97,salarioMin:5500000,salarioMax:22000000},
+{slug:'ciencia-datos-ia',nombre:'Ciencias de Datos / IA',icono:'🤖',area:'tecnologia',empleabilidad:92,salarioMin:5000000,salarioMax:15000000},
+{slug:'medicina',nombre:'Medicina',icono:'🩺',area:'salud',empleabilidad:95,salarioMin:3351057,salarioMax:18401588},
+{slug:'ingenieria-informatica',nombre:'Ingeniería Informática',icono:'💻',area:'tecnologia',empleabilidad:90,salarioMin:3864110,salarioMax:12932477},
+{slug:'ingenieria-civil',nombre:'Ingeniería Civil',icono:'🏗️',area:'ingenieria',empleabilidad:90,salarioMin:4337986,salarioMax:17612769},
+{slug:'ingenieria-ambiental',nombre:'Ingeniería Ambiental',icono:'🌱',area:'ingenieria',empleabilidad:85,salarioMin:25000000,salarioMax:40000000},
+{slug:'ingenieria-industrial',nombre:'Ingeniería Industrial',icono:'⚙️',area:'ingenieria',empleabilidad:85,salarioMin:3406055,salarioMax:15816049},
+{slug:'enfermeria',nombre:'Enfermería',icono:'💉',area:'salud',empleabilidad:88,salarioMin:3000000,salarioMax:8000000},
+{slug:'logistica-comercio',nombre:'Logística y Comercio Exterior',icono:'🚢',area:'negocios',empleabilidad:85,salarioMin:4000000,salarioMax:12000000},
+{slug:'farmacia',nombre:'Farmacia',icono:'💊',area:'salud',empleabilidad:82,salarioMin:3500000,salarioMax:9000000},
+{slug:'administracion-empresas',nombre:'Administración de Empresas',icono:'📊',area:'negocios',empleabilidad:80,salarioMin:3434114,salarioMax:16336463},
+{slug:'contabilidad-auditoria',nombre:'Contabilidad y Auditoría',icono:'📑',area:'negocios',empleabilidad:80,salarioMin:3400000,salarioMax:16000000},
+{slug:'arquitectura',nombre:'Arquitectura',icono:'🏛️',area:'diseno',empleabilidad:78,salarioMin:4873929,salarioMax:9402973},
+{slug:'ingenieria-comercial',nombre:'Ingeniería Comercial / Marketing',icono:'📈',area:'negocios',empleabilidad:75,salarioMin:2755448,salarioMax:10957384}
+];
+
+function formatGs(n){return n.toLocaleString('es-PY')}
+function areaLabel(a){return{ingenieria:'Ingeniería',tecnologia:'Tecnología',salud:'Salud',negocios:'Negocios',diseno:'Diseño'}[a]||a}
+
+/* RIASEC QUESTIONS */
+const QUESTIONS=[
+{q:'¿Qué actividad disfrutarías más en tu tiempo libre?',opts:[
+{t:'Reparar o construir objetos con mis manos',scores:{R:3,I:1,ingenieria:2}},
+{t:'Leer sobre ciencia y hacer experimentos',scores:{I:3,A:1,ciencia:2}},
+{t:'Dibujar, pintar o diseñar algo',scores:{A:3,tecnologia:1,diseno:2}},
+{t:'Ayudar a personas que lo necesitan',scores:{S:3,salud:3}}]},
+{q:'¿En qué entorno te gustaría trabajar?',opts:[
+{t:'Al aire libre, en el campo o la naturaleza',scores:{R:3,ingenieria:1,ambiental:2}},
+{t:'En un laboratorio o centro de investigación',scores:{I:3,salud:2,ciencia:2}},
+{t:'En una oficina con computadoras',scores:{C:2,tecnologia:3,negocios:2}},
+{t:'Con personas, en contacto directo',scores:{S:3,salud:2,negocios:2}}]},
+{q:'¿Qué habilidad destacas más en ti?',opts:[
+{t:'Habilidad manual y técnica',scores:{R:3,ingenieria:3}},
+{t:'Pensamiento analítico y lógico',scores:{I:3,tecnologia:3}},
+{t:'Creatividad y expresión artística',scores:{A:3,diseno:3}},
+{t:'Comunicación y empatía',scores:{S:3,salud:2,negocios:2}}]},
+{q:'¿Qué tipo de problema te gustaría resolver?',opts:[
+{t:'Problemas prácticos y concretos',scores:{R:3,ingenieria:2}},
+{t:'Problemas teóricos y complejos',scores:{I:3,tecnologia:2,ciencia:2}},
+{t:'Problemas que requieran imaginación',scores:{A:3,diseno:3}},
+{t:'Problemas de personas y relaciones',scores:{S:3,salud:2}}]},
+{q:'¿Cómo prefieres trabajar?',opts:[
+{t:'Con herramientas y máquinas',scores:{R:3,ingenieria:2}},
+{t:'Con datos, fórmulas y modelos',scores:{I:3,tecnologia:3,negocios:1}},
+{t:'Con ideas y conceptos visuales',scores:{A:3,diseno:2}},
+{t:'Con equipos y grupos humanos',scores:{S:3,negocios:2,salud:2}}]},
+{q:'¿Qué logro te haría más feliz?',opts:[
+{t:'Construir algo útil para la sociedad',scores:{R:3,ingenieria:3}},
+{t:'Descubrir algo que nadie sabía',scores:{I:3,ciencia:2,tecnologia:2}},
+{t:'Crear una obra que inspire',scores:{A:3,diseno:3}},
+{t:'Ayudar a alguien a mejorar su vida',scores:{S:3,salud:3}}]},
+{q:'¿Qué materia del colegio te gustaba más?',opts:[
+{t:'Educación Física / Talleres',scores:{R:3,ingenieria:1}},
+{t:'Matemáticas / Física / Química',scores:{I:3,ingenieria:2,tecnologia:2}},
+{t:'Arte / Literatura / Música',scores:{A:3,diseno:3}},
+{t:'Historia / Filosofía / Psicología',scores:{S:3,salud:1,negocios:1}}]},
+{q:'¿Cómo tomas decisiones?',opts:[
+{t:'Con la experiencia práctica',scores:{R:3,ingenieria:2}},
+{t:'Con datos y análisis profundo',scores:{I:3,tecnologia:2,negocios:2}},
+{t:'Con intuición y creatividad',scores:{A:3,diseno:3}},
+{t:'Pensando en el bienestar de otros',scores:{S:3,salud:3}}]},
+{q:'¿Qué te motiva más?',opts:[
+{t:'Ver resultados tangibles de mi trabajo',scores:{R:3,ingenieria:2}},
+{t:'Entender cómo funcionan las cosas',scores:{I:3,tecnologia:2,ciencia:2}},
+{t:'Expresar mi visión personal',scores:{A:3,diseno:3}},
+{t:'Impactar positivamente en otros',scores:{S:3,salud:3}}]},
+{q:'¿Cómo prefieres aprender?',opts:[
+{t:'Haciendo, con las manos',scores:{R:3,ingenieria:3}},
+{t:'Leyendo y analizando información',scores:{I:3,tecnologia:2,negocios:1}},
+{t:'Experimentando y creando',scores:{A:3,diseno:2}},
+{t:'En grupo, compartiendo ideas',scores:{S:3,negocios:2}}]},
+{q:'¿Qué materia te gustaría dominar?',opts:[
+{t:'Mecánica, construcción o electricidad',scores:{R:3,ingenieria:3}},
+{t:'Programación, cálculo o estadística',scores:{I:3,tecnologia:3,negocios:1}},
+{t:'Diseño, fotografía o arquitectura',scores:{A:3,diseno:3}},
+{t:'Psicología, medicina o docencia',scores:{S:3,salud:3}}]},
+{q:'¿En qué tipo de empresa te gustaría trabajar?',opts:[
+{t:'Fábrica, planta o construcción',scores:{R:3,ingenieria:2}},
+{t:'Laboratorio, hospital o centro tech',scores:{I:3,salud:2,tecnologia:2}},
+{t:'Estudio creativo o agencia',scores:{A:3,diseno:3}},
+{t:'Escuela, ONG o empresa de servicios',scores:{S:3,salud:2,negocios:2}}]}
+];
+
+let state={step:-1,answers:[],scores:{},riasec:{R:0,I:0,A:0,S:0,E:0,C:0}};
+let isPremium=localStorage.getItem('dp_premium_v2')==='true';
+
+/* RENDER START */
+function renderStart(){
+  document.getElementById('testContainer').innerHTML=`
+    <div class="start-card">
+      <div class="start-emoji">🧭</div>
+      <h2>Descubre tu vocación ideal</h2>
+      <p>Responde 12 preguntas simples y nuestro algoritmo basado en el modelo RIASEC te recomendará las 3 carreras más compatibles con tu perfil.</p>
+      <div class="start-features">
+        <div class="start-feature"><span class="sf-icon">⏱️</span><div class="sf-lbl">3 minutos</div></div>
+        <div class="start-feature"><span class="sf-icon">🎯</span><div class="sf-lbl">12 preguntas</div></div>
+        <div class="start-feature"><span class="sf-icon">✨</span><div class="sf-lbl">Resultado inmediato</div></div>
+      </div>
+      <div class="start-stats">
+        <div class="start-stat"><strong>+12.500</strong><span>Tests realizados</span></div>
+        <div class="start-stat"><strong>92%</strong><span>Satisfacción</span></div>
+        <div class="start-stat"><strong>15</strong><span>Carreras</span></div>
+      </div>
+      <button class="btn btn-primary btn-lg" onclick="startQuiz()">🚀 Comenzar test gratis</button>
+      <div style="margin-top:1rem;font-size:.78rem;color:var(--text-dim)">No requiere registro · 100% gratis</div>
+    </div>`;
+}
+
+function startQuiz(){state={step:0,answers:[],scores:{},riasec:{R:0,I:0,A:0,S:0,E:0,C:0}};renderQuestion()}
+
+function renderQuestion(){
+  if(state.step>=QUESTIONS.length){renderResult();return}
+  const q=QUESTIONS[state.step];
+  const progress=((state.step)/QUESTIONS.length)*100;
+  document.getElementById('testContainer').innerHTML=`
+    <div class="test-card">
+      <div class="test-progress-bar"><div class="fill" style="width:${progress}%"></div></div>
+      <div class="test-step-indicator">
+        <span>Pregunta ${state.step+1} de ${QUESTIONS.length}</span>
+        <span>${Math.round(progress)}% completado</span>
+      </div>
+      <div class="test-question">${q.q}</div>
+      <div class="test-options">
+        ${q.opts.map((o,i)=>`
+          <button class="test-opt" onclick="answer(${i})">
+            <div class="letter">${String.fromCharCode(65+i)}</div>
+            <span>${o.t}</span>
+          </button>`).join('')}
+      </div>
+      <div class="test-nav">
+        ${state.step>0?`<button class="btn btn-ghost" onclick="prevQuestion()">← Anterior</button>`:'<div></div>'}
+        <div style="font-size:.78rem;color:var(--text-dim);align-self:center">${state.step+1}/${QUESTIONS.length}</div>
+      </div>
+    </div>`;
+  window.scrollTo({top:200,behavior:'smooth'});
+}
+
+function answer(idx){
+  const q=QUESTIONS[state.step];
+  state.answers[state.step]=idx;
+  Object.entries(q.opts[idx].scores).forEach(([k,v])=>{
+    if(['R','I','A','S','E','C'].includes(k)){state.riasec[k]=(state.riasec[k]||0)+v}
+    else{state.scores[k]=(state.scores[k]||0)+v}
+  });
+  state.step++;
+  setTimeout(renderQuestion,200);
+}
+
+function prevQuestion(){
+  if(state.step>0){
+    const q=QUESTIONS[state.step-1];
+    const prevIdx=state.answers[state.step-1];
+    if(prevIdx!==undefined){
+      Object.entries(q.opts[prevIdx].scores).forEach(([k,v])=>{
+        if(['R','I','A','S','E','C'].includes(k)){state.riasec[k]-=v}
+        else{state.scores[k]=(state.scores[k]||0)-v}
+      });
+    }
+    state.step--;
+    renderQuestion();
+  }
+}
+
+function renderResult(){
+  // Calcular carrera recomendada
+  const sortedAreas=Object.entries(state.scores).filter(([k])=>!['R','I','A','S','E','C'].includes(k)).sort((a,b)=>b[1]-a[1]);
+  const topAreas=sortedAreas.slice(0,3).map(([a])=>a);
+
+  // Filtrar carreras por áreas recomendadas
+  let recommended=CARRERAS.filter(c=>topAreas.includes(c.area));
+  if(recommended.length<3)recommended=[...recommended,...CARRERAS.filter(c=>!topAreas.includes(c.area))];
+  recommended=recommended.slice(0,3);
+
+  // RIASEC dominante
+  const riasecSorted=Object.entries(state.riasec).sort((a,b)=>b[1]-a[1]);
+  const dominant=riasecSorted.slice(0,3).map(([k])=>k);
+  const personalityNames={
+    'R':'Realista','I':'Investigador','A':'Artístico','S':'Social','E':'Emprendedor','C':'Convencional'
+  };
+  const personalityEmojis={
+    'R':'🔧','I':'🔬','A':'🎨','S':'🤝','E':'🚀','C':'📊'
+  };
+  const personalityDesc={
+    'R':'Práctico, concreto y orientado a la acción. Prefieres trabajar con objetos, herramientas y sistemas tangibles.',
+    'I':'Analítico, curioso y orientado al conocimiento. Te apasiona entender cómo funcionan las cosas.',
+    'A':'Creativo, expresivo y original. Buscas formas nuevas de comunicar y expresar ideas.',
+    'S':'Empático, comunicativo y orientado a las personas. Disfrutas ayudar y enseñar a otros.',
+    'E':'Líder, persuasivo y orientado a resultados. Te gusta dirigir y convencer.',
+    'C':'Organizado, meticuloso y orientado al detalle. Prefieres sistemas y procesos claros.'
+  };
+
+  const dominantCode=dominant.slice(0,3).join('');
+  const primaryPersonality=dominant[0];
+
+  document.getElementById('testContainer').innerHTML=`
+    <div class="test-card">
+      <div class="result-hero">
+        <div class="result-emoji">${personalityEmojis[primaryPersonality]}</div>
+        <h2>¡Test completado!</h2>
+        <p>Tu perfil vocacional es <strong>${personalityNames[primaryPersonality]}</strong> (${dominantCode})</p>
+        <div class="personality-badge">
+          ${personalityEmojis[primaryPersonality]} ${personalityNames[primaryPersonality]}
+        </div>
+      </div>
+
+      <div style="padding:1.3rem;background:var(--glass);border-radius:14px;margin-bottom:2rem;font-size:.9rem;color:var(--text-mut);line-height:1.7;text-align:center">
+        ${personalityDesc[primaryPersonality]}
+      </div>
+
+      <h3 style="font-family:var(--font-d);font-size:1.2rem;font-weight:700;margin-bottom:1rem;text-align:center">🎯 Tus 3 carreras más compatibles</h3>
+      <div class="result-careers">
+        ${recommended.map((c,i)=>{
+          const matchPct=[96,88,82][i];
+          return `
+            <a href="carreras.html?slug=${c.slug}" class="result-career">
+              <div class="icon">${c.icono}</div>
+              <div class="info">
+                <h4>${c.nombre}</h4>
+                <div class="meta">📈 ${c.empleabilidad}% empleabilidad · ${areaLabel(c.area)}</div>
+              </div>
+              <div class="match">
+                <div class="pct">${matchPct}%</div>
+                <div class="lbl">Match</div>
+              </div>
+            </a>`;
+        }).join('')}
+      </div>
+
+      <h3 style="font-family:var(--font-d);font-size:1.1rem;font-weight:700;margin:2rem 0 1rem;text-align:center">📊 Tu perfil RIASEC</h3>
+      <div class="traits-chart">
+        ${['R','I','A','S','E','C'].map(k=>{
+          const v=state.riasec[k]||0;
+          const max=Math.max(...Object.values(state.riasec),1);
+          const pct=Math.round((v/max)*100);
+          return `
+            <div class="trait">
+              <div class="t-label">${personalityEmojis[k]} ${personalityNames[k]}</div>
+              <div class="t-bar"><div class="fill" style="width:${pct}%"></div></div>
+              <div class="t-value">${pct}%</div>
+            </div>`;
+        }).join('')}
+      </div>
+
+      ${!isPremium?`
+        <div class="premium-cta">
+          <span class="pc-icon">⭐</span>
+          <h3>Análisis completo con Premium</h3>
+          <p>Desbloquea análisis profundo de personalidad, 10 carreras recomendadas, reporte PDF descargable y alertas de becas.</p>
+          <div class="pc-features">
+            <span class="pc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>10 carreras</span>
+            <span class="pc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Reporte PDF</span>
+            <span class="pc-feature"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>Alertas de becas</span>
+          </div>
+          <button class="btn btn-premium btn-lg" onclick="openPremium()">⭐ Desbloquear por Gs. 39.000/mes</button>
+        </div>
+      `:`
+        <div style="padding:2rem;background:linear-gradient(135deg,rgba(16,185,129,.1),rgba(6,182,212,.05));border:1px solid rgba(16,185,129,.3);border-radius:20px;text-align:center;margin-top:2rem">
+          <div style="font-size:2.5rem;margin-bottom:.8rem">🎉</div>
+          <h3 style="font-family:var(--font-d);font-size:1.2rem;font-weight:700;margin-bottom:.5rem;color:var(--emerald)">¡Análisis Premium desbloqueado!</h3>
+          <p style="color:var(--text-mut);font-size:.9rem;margin-bottom:1.5rem">Descarga tu reporte completo en PDF</p>
+          <button class="btn btn-primary" onclick="window.print()">📄 Descargar reporte PDF</button>
+        </div>
+      `}
+
+      <div class="result-actions" style="margin-top:2rem">
+        <button class="btn btn-primary" onclick="startQuiz()">🔄 Repetir test</button>
+        <a href="carreras.html" class="btn btn-ghost">📚 Ver todas las carreras</a>
+      </div>
+    </div>`;
+
+  window.scrollTo({top:200,behavior:'smooth'});
+}
+
+/* PREMIUM MODAL - reutilizar del sistema de carreras */
+const PLANS={premium:{id:'premium',name:'Premium Estudiante',price:39000,period:'mes'},pro:{id:'pro',name:'Premium Pro',price:79000,period:'mes'}};
+let paymentState={plan:null};
+
+function openPremium(){
+  document.getElementById('premiumModalCard').innerHTML=`
+    <button class="modal-close" onclick="closePremium()">✕</button>
+    <div class="modal-body" style="padding-top:3rem">
+      <div style="text-align:center;margin-bottom:2rem">
+        <div style="display:inline-block;font-size:3rem;margin-bottom:1rem">⭐</div>
+        <h2 style="font-family:var(--font-d);font-size:1.8rem;font-weight:700;margin-bottom:.5rem">Hazte Premium</h2>
+        <p style="color:var(--text-mut);max-width:520px;margin:0 auto">Desbloquea análisis profundo, 10 carreras, reportes PDF y más.</p>
+      </div>
+      <div style="display:grid;gap:1.2rem;grid-template-columns:1fr 1fr;max-width:820px;margin:0 auto" class="pricing-grid-mobile">
+        ${Object.values(PLANS).map(p=>`
+          <div style="background:var(--glass);border:${p.id==='pro'?'2px solid rgba(251,191,36,.4)':'1px solid var(--border)'};border-radius:20px;padding:2rem;display:flex;flex-direction:column;gap:1rem">
+            ${p.id==='pro'?'<span style="position:absolute;top:1rem;right:1rem;padding:.35rem .9rem;background:linear-gradient(135deg,var(--amber),var(--orange));color:#1a1a1a;border-radius:100px;font-size:.68rem;font-weight:800">🔥 Recomendado</span>':''}
+            <div style="font-family:var(--font-d);font-size:1.3rem;font-weight:700">${p.name}</div>
+            <div style="font-family:var(--font-d);font-size:2.4rem;font-weight:700">Gs. ${formatGs(p.price)}<span style="font-size:.85rem;color:var(--text-mut);font-weight:400">/${p.period}</span></div>
+            <ul style="list-style:none;padding:0;display:flex;flex-direction:column;gap:.6rem;font-size:.85rem;color:var(--text-mut)">
+              ${(p.id==='premium'?['Comparador ilimitado','Favoritos ilimitados','Simulador salarial','Reporte PDF','Sin publicidad']:['Todo lo de Estudiante','1 sesión 1a1','Informe vocacional','Alertas de becas','Comunidad privada']).map(f=>`<li style="display:flex;gap:.5rem"><span style="color:var(--emerald)">✓</span>${f}</li>`).join('')}
+            </ul>
+            <button class="btn ${p.id==='pro'?'btn-primary':'btn-premium'} btn-block" onclick="startCheckout('${p.id}')">Comenzar</button>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  document.getElementById('premiumModal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closePremium(){document.getElementById('premiumModal').classList.remove('open');document.body.style.overflow=''}
+
+function startCheckout(planId){
+  paymentState.plan=PLANS[planId];
+  const p=paymentState.plan;
+  document.getElementById('premiumModalCard').innerHTML=`
+    <button class="modal-close" onclick="closePremium()">✕</button>
+    <div class="modal-body" style="padding-top:3rem;max-width:560px;margin:0 auto">
+      <div class="checkout-progress">
+        <div class="cp-step active"><div class="cp-dot">1</div><span>Datos</span></div>
+        <div class="cp-line"></div>
+        <div class="cp-step"><div class="cp-dot">2</div><span>Verificación</span></div>
+        <div class="cp-line"></div>
+        <div class="cp-step"><div class="cp-dot">3</div><span>Confirmación</span></div>
+      </div>
+      <h3 style="font-family:var(--font-d);font-size:1.3rem;font-weight:700;text-align:center;margin:1.5rem 0 .5rem">Completa tu pago</h3>
+      <p style="text-align:center;color:var(--text-mut);font-size:.85rem;margin-bottom:1.5rem">Suscripción ${p.name} · Gs. ${formatGs(p.price)}/mes</p>
+
+      <div class="card-preview" style="margin-bottom:1.5rem">
+        <div class="card-preview-chip"></div>
+        <div class="card-number-preview" id="cardNumPrev">•••• •••• •••• ••••</div>
+        <div class="card-info-row">
+          <div><div class="card-info-lbl">TITULAR</div><div class="card-info-val" id="cardNamePrev">TU NOMBRE</div></div>
+          <div><div class="card-info-lbl">VENCE</div><div class="card-info-val" id="cardExpPrev">MM/YY</div></div>
+        </div>
+      </div>
+
+      <form onsubmit="processPayment(event)">
+        <div class="form-field"><label>Nombre del titular</label><input type="text" id="cc-name" required placeholder="Como aparece en la tarjeta" oninput="document.getElementById('cardNamePrev').textContent=this.value.toUpperCase()||'TU NOMBRE'"></div>
+        <div class="form-field"><label>Número de tarjeta</label><input type="text" id="cc-number" required placeholder="1234 5678 9012 3456" maxlength="19" inputmode="numeric" oninput="fmtCardNum(this)"></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">
+          <div class="form-field"><label>Vencimiento</label><input type="text" id="cc-exp" required placeholder="MM/YY" maxlength="5" inputmode="numeric" oninput="fmtExp(this)"></div>
+          <div class="form-field"><label>CVC</label><input type="text" id="cc-cvc" required placeholder="123" maxlength="4" inputmode="numeric" oninput="this.value=this.value.replace(/\\D/g,'')"></div>
+        </div>
+        <div class="form-field"><label>Email</label><input type="email" id="cc-email" required placeholder="tu@email.com"></div>
+        <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top:1rem">🔒 Pagar Gs. ${formatGs(p.price)}</button>
+      </form>
+    </div>`;
+}
+function fmtCardNum(i){const v=i.value.replace(/\D/g,'').slice(0,16);i.value=v.replace(/(.{4})/g,'$1 ').trim();document.getElementById('cardNumPrev').textContent=i.value||'•••• •••• •••• ••••'}
+function fmtExp(i){let v=i.value.replace(/\D/g,'').slice(0,4);if(v.length>=3)v=v.slice(0,2)+'/'+v.slice(2);i.value=v;document.getElementById('cardExpPrev').textContent=v||'MM/YY'}
+
+function processPayment(e){
+  e.preventDefault();
+  const p=paymentState.plan;
+  const last4=document.getElementById('cc-number').value.replace(/\s/g,'').slice(-4);
+  document.getElementById('premiumModalCard').innerHTML=`
+    <div class="modal-body" style="padding:4rem 2rem;text-align:center">
+      <div style="width:80px;height:80px;border:4px solid var(--glass-2);border-top-color:var(--violet-d);border-radius:50%;margin:0 auto 1.5rem;animation:spin 1s linear infinite"></div>
+      <h3 style="font-family:var(--font-d);font-size:1.3rem;font-weight:700;margin-bottom:.5rem">Procesando pago...</h3>
+      <p style="color:var(--text-mut);font-size:.88rem">Verificando con tu banco de forma segura</p>
+    </div>`;
+  setTimeout(()=>{
+    isPremium=true;
+    localStorage.setItem('dp_premium_v2','true');
+    document.getElementById('premiumModalCard').innerHTML=`
+      <div class="modal-body" style="padding:3rem 2rem;text-align:center">
+        <div class="success-anim"><div class="success-circle"><svg class="success-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div></div>
+        <h2 style="font-family:var(--font-d);font-size:2rem;font-weight:700;margin-bottom:.5rem;color:var(--emerald)">¡Pago exitoso!</h2>
+        <p style="color:var(--text-mut);margin-bottom:2rem">Tu suscripción ${p.name} está activa</p>
+        <div class="receipt">
+          <div class="receipt-row"><span class="k">Plan</span><span class="v">${p.name}</span></div>
+          <div class="receipt-row"><span class="k">Monto</span><span class="v">Gs. ${formatGs(p.price)}</span></div>
+          <div class="receipt-row"><span class="k">Tarjeta</span><span class="v">•••• ${last4}</span></div>
+          <div class="receipt-row"><span class="k">Estado</span><span class="v" style="color:var(--emerald)">✓ ACTIVO</span></div>
+        </div>
+        <button class="btn btn-primary btn-lg" style="margin-top:2rem" onclick="closePremium();showToast('⭐ Premium activado','premium');if(state.step>=QUESTIONS.length)renderResult()">Comenzar a usar Premium</button>
+      </div>`;
+  },2400);
+}
+
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closePremium()});
+document.addEventListener('DOMContentLoaded',()=>{updateThemeIcon();renderStart()});
+</script>
+</body>
+</html>
